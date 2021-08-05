@@ -5,3 +5,4 @@ format: jb-book
 root: intro
 chapters:
 - file: 02_turtle/turtle_workshop.ipynb
+- file: project/project.md

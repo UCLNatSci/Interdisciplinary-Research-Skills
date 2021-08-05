@@ -1,21 +1,5 @@
 {
   "02_turtle\\turtle_workshop_answers": {
-    "turtle_rotated_squares": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "turtle_rotated_squares",
-          "mime_prefix": "application/papermill.record/"
-        },
-        "filenames": {
-          "image/png": "C:\\Users\\NatSciTeaching\\nsci0010\\NSCI0010\\_build\\jupyter_execute\\02_turtle\\turtle_workshop_answers_7_0.png"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "<Figure size 288x288 with 1 Axes>",
-        "application/papermill.record/image/png": null
-      }
-    },
     "turtle_circles": {
       "output_type": "display_data",
       "metadata": {
@@ -24,7 +8,23 @@
           "mime_prefix": "application/papermill.record/"
         },
         "filenames": {
-          "image/png": "C:\\Users\\NatSciTeaching\\nsci0010\\NSCI0010\\_build\\jupyter_execute\\02_turtle\\turtle_workshop_answers_8_0.png"
+          "image/png": "C:\\Users\\NatSciTeaching\\github\\Interdisciplinary-Research-Skills\\book\\_build\\jupyter_execute\\02_turtle\\turtle_workshop_answers_8_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 288x288 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "turtle_rotated_squares": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "turtle_rotated_squares",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "C:\\Users\\NatSciTeaching\\github\\Interdisciplinary-Research-Skills\\book\\_build\\jupyter_execute\\02_turtle\\turtle_workshop_answers_7_0.png"
         }
       },
       "data": {
@@ -40,7 +40,7 @@
           "mime_prefix": "application/papermill.record/"
         },
         "filenames": {
-          "image/png": "C:\\Users\\NatSciTeaching\\nsci0010\\NSCI0010\\_build\\jupyter_execute\\02_turtle\\turtle_workshop_answers_6_0.png"
+          "image/png": "C:\\Users\\NatSciTeaching\\github\\Interdisciplinary-Research-Skills\\book\\_build\\jupyter_execute\\02_turtle\\turtle_workshop_answers_6_0.png"
         }
       },
       "data": {
