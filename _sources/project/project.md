@@ -5,7 +5,7 @@ For the rest of this course you will put together the concepts and skills you ha
 
 ## Measuring Gravity
 
-It is well known that the value of acceleration due to gravity at the Earth's surface ($g$) is approximately $8.91\mathrm{m}/\mathrm{s}^2$. But how accurately can you measure the value of this physical constant using just a phone camera and your nascent programming skills?
+It is well known that the value of acceleration due to gravity at the Earth's surface ($g$) is approximately $8.91~\mathrm{m}/\mathrm{s}^2$. But how accurately can you measure the value of this physical constant using just a phone camera and your nascent programming skills?
 
 The goal of this project is to produce a Python notebook which compares the experimentally recorded motion of a falling object and the expected motion according to physical laws.
 
