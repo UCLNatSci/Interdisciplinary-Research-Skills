@@ -1,0 +1,709 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Segmentation &#8212; IRS1 Computing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/EDIT1-tax-041516-AP.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">IRS1 Computing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to IRS1 Computing
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_introduction/getting_started.html">
+   Workshop 1: Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_arithmetic_arrays_graphs/arithmetic.html">
+   Workshop 2: Computation and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_simulation/simulation.html">
+   Workshop 3: Modelling and Simulation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/4_image_segmentation/segmentation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F4_image_segmentation/segmentation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/4_image_segmentation/segmentation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#images">
+   Images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thresholding">
+   Thresholding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#segmentation">
+   Segmentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#videos">
+   Videos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="image-segmentation">
+<h1>Image Segmentation<a class="headerlink" href="#image-segmentation" title="Permalink to this headline">¶</a></h1>
+<p>Image segmentation is the process of partitioning a image or video into regions, typically for the purpose of identifying specific objects or features. For example, identifying different tissue types in medical images, or distinguishing objects in astronomical images.
+<img src="https://d3i71xaburhd42.cloudfront.net/1b699b098ec7a5e539afd8370d71a82d41e3370d/3-Figure1-1.png" width="400px" /></p>
+<p>In this workshop, you will use image segmentation techniques to reproduce part of a famous experiment - Jean Perrin’s confirmation of Einstein’s Brownian motion equation.</p>
+<p>In this experiment, tiny particles suspended in water are observed through a microscope. Due to collisions with water molecules, the particles appear to move in a random and erratic fashion known as <a class="reference external" href="https://en.wikipedia.org/wiki/Brownian_motion">Brownian motion</a>. In 1908 Jean Baptiste Perrin experimentally validate Einstein’s kinetic theory of Brownian motion, providing the first direct evidence of the atomic nature of matter and enabling the calculation of an estimate of Avogadro’s number.</p>
+<p>Our goal is to use image segmentation to track the x- and y- coordinates of one of the particles in the video below.</p>
+<iframe width="650" height="395" src="https://mediacentral.ucl.ac.uk/player?autostart=n&videoId=f63a5H5i&captions=y&chapterId=0" frameborder="0" scrolling="no"  allowfullscreen></iframe>
+<p>We will perform the following steps to each frame of the video:</p>
+<ol class="simple">
+<li><p>Read the image data into a numpy array</p></li>
+<li><p>Crop the image so that only one particle is in view</p></li>
+<li><p>Threshold the image to distinguish particle from background</p></li>
+<li><p>Identify the particle x- and y-coordinates using segmentation techniques</p></li>
+<li><p>Store the co-ordinates in an array</p></li>
+</ol>
+<p>The guts of this process is step 3, so we will study this first using a small sample image.</p>
+<div class="section" id="images">
+<h2>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">bw.png</span></code> is an 8x8 pixel image:</p>
+<p><img alt="" src="../_images/bw_big.png" /></p>
+<p>The image contains two particles, and our goal is to identify the larger one and determine its co-ordinates.</p>
+<p>An image is essentially a 2-dimensional array where each element represents the colour intensity of each pixel.</p>
+<p>First we import the module <code class="docutils literal notranslate"><span class="pre">matplotlib.image</span></code> and use the <code class="docutils literal notranslate"><span class="pre">imread</span></code> function to convert it to an array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span> <span class="c1"># import the image module</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;bw.png&quot;</span><span class="p">)</span> <span class="c1"># read the image into an array x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># print x, rounding to 1 d.p.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.3 0.4 0.3 0.4 0.3 0.2 0.3 0.3]
+ [0.4 0.5 0.5 0.5 0.4 0.3 0.3 0.3]
+ [0.4 0.6 0.7 0.8 0.6 0.4 0.3 0.3]
+ [0.5 0.8 0.9 0.9 0.8 0.5 0.3 0.3]
+ [0.5 0.8 0.9 0.9 0.8 0.5 0.4 0.3]
+ [0.4 0.6 0.8 0.8 0.6 0.6 0.6 0.4]
+ [0.4 0.5 0.5 0.5 0.4 0.6 1.  0.6]
+ [0.3 0.3 0.3 0.3 0.3 0.4 0.5 0.4]]
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Upload the file <code class="docutils literal notranslate"><span class="pre">bw.png</span></code> and use the above code to read it into an array.</p>
+</div></blockquote>
+</div>
+<div class="section" id="thresholding">
+<h2>Thresholding<a class="headerlink" href="#thresholding" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to threshold the image, generating an array whose values are 1 for pixels above the threshold, and 0 for pixels below the threshold. The threshold value should of course be between the minimum and maximum values in this array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Min: 0.25
+Max: 1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s choose a threshold value of 0.5. The following code creates an array <code class="docutils literal notranslate"><span class="pre">x_threshold</span></code> whose values are 1 only for pixels above 0.5:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_threshold</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 0 0 0 0 0 0 0]
+ [0 0 1 1 0 0 0 0]
+ [0 1 1 1 1 0 0 0]
+ [0 1 1 1 1 0 0 0]
+ [1 1 1 1 1 0 0 0]
+ [0 1 1 1 1 1 1 0]
+ [0 0 0 0 0 1 1 1]
+ [0 0 0 0 0 0 0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Experiment with different threshold values. Is it possible to isolate just the large (top) blob?</p>
+</div></blockquote>
+<p>You should have found that you can isolate the smaller (bottom) blob, or two distinct blobs, but it’s not possible to find a value which isolates just the larger (top) blob.</p>
+<p>Let’s use the value 0.7 which results in two disconnected blobs. We’ll also display the array <code class="docutils literal notranslate"><span class="pre">x_threshold</span></code> as an image using the function <code class="docutils literal notranslate"><span class="pre">plt.imshow</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_threshold</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0]
+ [0 0 1 1 0 0 0 0]
+ [0 1 1 1 1 0 0 0]
+ [0 1 1 1 1 0 0 0]
+ [0 0 1 1 0 0 0 0]
+ [0 0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 0 0]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f39f3dc9b20&gt;
+</pre></div>
+</div>
+<img alt="../_images/segmentation_9_2.png" src="../_images/segmentation_9_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="segmentation">
+<h2>Segmentation<a class="headerlink" href="#segmentation" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to identify the blobs and determine their size and locations. There is a package called <code class="docutils literal notranslate"><span class="pre">scipy.ndimage</span></code> which contains functions to do exactly this. The following code identifies and prints the number of blobs, their sizes and the co-ordinates of the largest one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.ndimage</span> <span class="k">as</span> <span class="nn">sn</span> <span class="c1"># import the scipy.ndimage package</span>
+<span class="n">x_labels</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">sn</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">)</span> <span class="c1"># generate </span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number of blobs:&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="n">sizes</span> <span class="o">=</span> <span class="n">sn</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sizes:&quot;</span><span class="p">,</span> <span class="n">sizes</span><span class="p">)</span>
+
+<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span> <span class="c1"># get the index of the largest blob</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;index:&quot;</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+
+<span class="n">location</span> <span class="o">=</span> <span class="n">sn</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># determine the coordinates of the largest blob</span>
+<span class="n">y_pos</span><span class="p">,</span> <span class="n">x_pos</span> <span class="o">=</span> <span class="n">location</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;co-ordinates:&quot;</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of blobs: 2
+sizes: [12.  1.]
+index: 0
+co-ordinates: 2.5 3.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have identified that the largest blob as co-ordinates (2.5, 3.5). Using <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> we can mark this location on the image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># swho the original image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f3a36c1b250&gt;
+</pre></div>
+</div>
+<img alt="../_images/segmentation_13_1.png" src="../_images/segmentation_13_1.png" />
+</div>
+</div>
+<p>The image <code class="docutils literal notranslate"><span class="pre">frame0.png</span></code> is part of one frame of the Brownian motion video.</p>
+<blockquote>
+<div><p>Determine the x- and y-coordinates of the particle in the image <code class="docutils literal notranslate"><span class="pre">frame0.png</span></code>.</p>
+<ol class="simple">
+<li><p>Read the image into an array</p></li>
+<li><p>Threshold the image using a suitable threshold value</p></li>
+<li><p>Segment the image and determine the location of the largest blob</p></li>
+<li><p>Mark the location of the particle on the image</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
+<p>Our goal is to track the location of a moving particle across a sequence of frames of a video. A video is essentially a sequence of frame-by-frame still images, so we can reuse the techniques above.</p>
+<p>The following code loads a video file into an array called <code class="docutils literal notranslate"><span class="pre">data</span></code> and prints out the number of frames:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s1">&#39;atomic.avi&#39;</span><span class="p">)</span>
+
+<span class="n">frameCount</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_COUNT</span><span class="p">))</span>
+<span class="n">frameWidth</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">))</span>
+<span class="n">frameHeight</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">))</span>
+
+<span class="n">buf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">frameCount</span><span class="p">,</span> <span class="n">frameHeight</span><span class="p">,</span> <span class="n">frameWidth</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int16&#39;</span><span class="p">))</span>
+
+<span class="n">fc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">fc</span> <span class="o">&lt;</span> <span class="n">frameCount</span>  <span class="ow">and</span> <span class="n">ret</span><span class="p">):</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">buf</span><span class="p">[</span><span class="n">fc</span><span class="p">]</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">fc</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of frames:&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">buf</span><span class="p">[:,:,:,:],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of frames: 200
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then extract the first frame (frame number 0) into an array <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:]</span> <span class="c1"># extract the first frame</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f39cffcaeb0&gt;
+</pre></div>
+</div>
+<img alt="../_images/segmentation_18_1.png" src="../_images/segmentation_18_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_min</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">x_max</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">y_min</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y_max</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x_min</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x_max</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y_min</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y_max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f399c278e80&gt;
+</pre></div>
+</div>
+<img alt="../_images/segmentation_20_1.png" src="../_images/segmentation_20_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_min</span><span class="p">:</span><span class="n">y_max</span><span class="p">,</span> <span class="n">x_min</span><span class="p">:</span><span class="n">x_max</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f399c25b610&gt;
+</pre></div>
+</div>
+<img alt="../_images/segmentation_21_1.png" src="../_images/segmentation_21_1.png" />
+</div>
+</div>
+<blockquote>
+<div><p>Use segmentation to determine the x,y-co-ordinates of the particle in the cropped frame. Repeat for a few other frames in the range 0…10. Can you find a threshold value that works across all frames in this range?</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="n">y_min</span><span class="p">:</span><span class="n">y_max</span><span class="p">,</span> <span class="n">x_min</span><span class="p">:</span><span class="n">x_max</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x_threshold</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f399c194580&gt;
+</pre></div>
+</div>
+<img alt="../_images/segmentation_23_1.png" src="../_images/segmentation_23_1.png" />
+<img alt="../_images/segmentation_23_2.png" src="../_images/segmentation_23_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_frames</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">x_pos_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_frames</span><span class="p">)</span>
+<span class="n">y_pos_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_frames</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">y_min</span><span class="p">:</span><span class="n">y_max</span><span class="p">,</span> <span class="n">x_min</span><span class="p">:</span><span class="n">x_max</span><span class="p">]</span>
+    <span class="n">x_threshold</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">scipy.ndimage</span> <span class="k">as</span> <span class="nn">sn</span> <span class="c1"># import the scipy.ndimage package</span>
+    <span class="n">x_labels</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">sn</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">)</span> <span class="c1"># generate </span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number of blobs:&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="n">sizes</span> <span class="o">=</span> <span class="n">sn</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sizes:&quot;</span><span class="p">,</span> <span class="n">sizes</span><span class="p">)</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span> <span class="c1"># get the index of the largest blob</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;index:&quot;</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+
+    <span class="n">location</span> <span class="o">=</span> <span class="n">sn</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">(</span><span class="n">x_threshold</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># determine the coordinates of the largest blob</span>
+    <span class="n">y_pos</span><span class="p">,</span> <span class="n">x_pos</span> <span class="o">=</span> <span class="n">location</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;co-ordinates:&quot;</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">)</span>
+    
+    <span class="n">x_pos_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_pos</span>
+    <span class="n">y_pos_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pos</span>
+    
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pos_array</span><span class="p">,</span> <span class="n">y_pos_array</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_max</span><span class="o">-</span><span class="n">x_min</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_max</span><span class="o">-</span><span class="n">y_min</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of blobs: 1
+sizes: [29.]
+index: 0
+co-ordinates: 75.41379310344827 34.724137931034484
+number of blobs: 1
+sizes: [32.]
+index: 0
+co-ordinates: 77.5 39.5
+number of blobs: 1
+sizes: [31.]
+index: 0
+co-ordinates: 80.7741935483871 35.516129032258064
+number of blobs: 1
+sizes: [33.]
+index: 0
+co-ordinates: 74.42424242424242 38.42424242424242
+number of blobs: 1
+sizes: [38.]
+index: 0
+co-ordinates: 74.10526315789474 39.21052631578947
+number of blobs: 1
+sizes: [37.]
+index: 0
+co-ordinates: 74.64864864864865 41.054054054054056
+number of blobs: 1
+sizes: [34.]
+index: 0
+co-ordinates: 77.5 37.705882352941174
+number of blobs: 2
+sizes: [36.  2.]
+index: 0
+co-ordinates: 79.52777777777777 36.138888888888886
+number of blobs: 1
+sizes: [35.]
+index: 0
+co-ordinates: 81.57142857142857 34.77142857142857
+number of blobs: 2
+sizes: [39.  1.]
+index: 0
+co-ordinates: 88.3076923076923 32.82051282051282
+number of blobs: 1
+sizes: [29.]
+index: 0
+co-ordinates: 90.44827586206897 34.310344827586206
+number of blobs: 2
+sizes: [32.  6.]
+index: 0
+co-ordinates: 92.84375 34.625
+number of blobs: 2
+sizes: [30. 12.]
+index: 0
+co-ordinates: 88.5 36.666666666666664
+number of blobs: 2
+sizes: [33. 17.]
+index: 0
+co-ordinates: 84.87878787878788 44.06060606060606
+number of blobs: 2
+sizes: [31. 27.]
+index: 0
+co-ordinates: 80.19354838709677 46.774193548387096
+number of blobs: 1
+sizes: [30.]
+index: 0
+co-ordinates: 78.2 49.333333333333336
+number of blobs: 2
+sizes: [16.  3.]
+index: 0
+co-ordinates: 80.5625 44.25
+number of blobs: 1
+sizes: [17.]
+index: 0
+co-ordinates: 81.52941176470588 43.0
+number of blobs: 1
+sizes: [32.]
+index: 0
+co-ordinates: 82.28125 49.8125
+number of blobs: 1
+sizes: [33.]
+index: 0
+co-ordinates: 84.0 46.0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 140.0)
+</pre></div>
+</div>
+<img alt="../_images/segmentation_25_2.png" src="../_images/segmentation_25_2.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4_image_segmentation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natural Sciences<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

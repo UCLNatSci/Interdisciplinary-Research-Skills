@@ -1,3 +1,3 @@
-# Introduction
+# Welcome to IRS1 Computing
 
-In this course you will undertake a series of workshops in which you will learn how to use Python to investigate various scientific applications.
+Use the menu on the left to navigate to each week's workshop.

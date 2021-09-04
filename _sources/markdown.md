@@ -1,70 +1,125 @@
-# Motion of an Object under Gravity
-## One-dimensional Case
-Newton's law of gravitation determines the force acting on a mass due to the gravitational attraction of a second mass:
+# Markdown Files
 
-$$F = \frac{Gm_1m_2}{r^2}$$
+Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
+in regular markdown files (`.md`), you'll write in the same flavor of markdown
+called **MyST Markdown**.
 
-Where $G$ is the universal gravitational constant, $m_1$ and $m_2$ are the two masses in kilograms and $r$ is the distance between them in metres.
+## What is MyST?
 
-Consider a projectile of mass $m_\mathrm{p}$ fired vertically from the surface of The Earth. The force acting on the projectile is
+MyST stands for "Markedly Structured Text". It
+is a slight variation on a flavor of markdown called "CommonMark" markdown,
+with small syntax extensions to allow you to write **roles** and **directives**
+in the Sphinx ecosystem.
 
-$$F = -\frac{Gm_\mathrm{p}m_\mathrm{e}}{x^2}$$
+## What are roles and directives?
 
-where $x$ is the distance of the projectile from the centre of The Earth. Combining with Newton's second law of motion $F = m_\mathrm{p}\ddot{x}$ gives an equation relating acceleration $\ddot{x}$ to position $x$:
+Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.
 
-$$\ddot{x} = -\frac{Gm_\mathrm{e}}{x^2}$$
+### Using a directive
 
-Finally, introducing the velocity $v = \dot{x}$ gives a coupled system of ordinary differential equations:
+At its simplest, you can insert a directive into your book's content like so:
 
-$$\begin{align*}
-\frac{dx}{dt} &= v\\
-\frac{dv}{dt} &= -\frac{Gm_\mathrm{e}}{x^2}
-\end{align*}$$
+````
+```{mydirectivename}
+My directive content
+```
+````
 
-(Note that the mass of the projectile does not appear in this equation! Is this what you would expect?)
+This will only work if a directive with name `mydirectivename` already exists
+(which it doesn't). There are many pre-defined directives associated with
+Jupyter Book. For example, to insert a note box into your content, you can
+use the following directive:
 
-## Two-dimensional Case
-An object is floating at position $(x_1, x_2)$ relative to the earth which is assumed to remain stationory at position $(0, 0)$.
+````
+```{note}
+Here is a note
+```
+````
 
-Let $\mathbf{x}$ be the position vector of the object and $\mathbf{F}$ the force vector:
+This results in:
 
-$$\mathbf{x} = \begin{bmatrix}
-           x_{1} \\
-           x_{2}
-         \end{bmatrix}$$
-         
-$$\mathbf{F} = \begin{bmatrix}
-           F_{1} \\
-           F_{2}
-         \end{bmatrix}$$
+```{note}
+Here is a note
+```
 
-$$$$
+In your built book.
 
-Newton's law of gravitation states that the force has magnitude:
+For more information on writing directives, see the
+[MyST documentation](https://myst-parser.readthedocs.io/).
 
-$$F = \frac{Gm_\mathrm{e}m_\mathrm{p}}{r^2}$$
 
-where $r = \sqrt{x_1^2 + x_2^2}$ is the distance between Earth and the object.
+### Using a role
 
-The direction of the force vector is a unit vector in the opposite direction to $(x_1, x_2)$ 
+Roles are very similar to directives, but they are less-complex and written
+entirely on one line. You can insert a role into your book's content with
+this pattern:
 
-$$-\frac{\mathbf{x}}{r} $$
+```
+Some content {rolename}`and here is my role's content!`
+```
 
-The force vector is then:
+Again, roles will only work if `rolename` is a valid role's name. For example,
+the `doc` role can be used to refer to another page in your book. You can
+refer directly to another page by its relative path. For example, the
+role syntax `` {doc}`intro` `` will result in: {doc}`intro`.
 
-$$\mathbf{F} = -\frac{Gm_\mathrm{e}m_\mathrm{p}}{r^2}\frac{\mathbf{x}}{r} =  -\frac{Gm_\mathrm{e}m_\mathrm{p}}{r^3}\mathbf{x}$$
+For more information on writing roles, see the
+[MyST documentation](https://myst-parser.readthedocs.io/).
 
-Introducing the velocity vector $\mathbf{v} = \ddot{\mathbf{x}}$ and using Newton's second law $\mathbf{F} = m_\mathrm{p}\ddot{\mathbf{x}}$:
 
-$$\begin{align*}
-\frac{d\mathbf{x}}{dt} &= \mathbf{v}\\
-\frac{d\mathbf{v}}{dt} &= -\frac{Gm_\mathrm{e}}{r^3}\mathbf{x}
-\end{align*}$$
+### Adding a citation
 
-Defining a timestep $\Delta t$, then the position vector $\mathbf{x}_{i+1}$ and velocity vector $\mathbf{v}_{i+1}$ at timepoint $i+1$ can be calculated from the position and velocity vectors $\mathbf{x}_{i}$ and $\mathbf{v}_{i}$ at time point $i$:
+You can also cite references that are stored in a `bibtex` file. For example,
+the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
+this: {cite}`holdgraf_evidence_2014`.
 
-$$ \begin{align*}
-\mathbf{x}_{i+1} &= \mathbf{x}_i + \mathbf{v}_i\Delta t\\
-\mathbf{v}_{i+1} &= \mathbf{v}_i -\frac{Gm_\mathrm{e}}{r^3}\mathbf{x_i}\Delta t
-\end{align*}$$
+Moreoever, you can insert a bibliography into your page with this syntax:
+The `{bibliography}` directive must be used for all the `{cite}` roles to
+render properly.
+For example, if the references for your book are stored in `references.bib`,
+then the bibliography is inserted with:
 
+````
+```{bibliography}
+```
+````
+
+Resulting in a rendered bibliography that looks like:
+
+```{bibliography}
+```
+
+
+### Executing code in your markdown files
+
+If you'd like to include computational content inside these markdown files,
+you can use MyST Markdown to define cells that will be executed when your
+book is built. Jupyter Book uses *jupytext* to do this.
+
+First, add Jupytext metadata to the file. For example, to add Jupytext metadata
+to this markdown page, run this command:
+
+```
+jupyter-book myst init markdown.md
+```
+
+Once a markdown file has Jupytext metadata in it, you can add the following
+directive to run the code at build time:
+
+````
+```{code-cell}
+print("Here is some code to execute")
+```
+````
+
+When your book is built, the contents of any `{code-cell}` blocks will be
+executed with your default Jupyter kernel, and their outputs will be displayed
+in-line with the rest of your content.
+
+For more information about executing computational content with Jupyter Book,
+see [The MyST-NB documentation](https://myst-nb.readthedocs.io/).
