@@ -4,5 +4,6 @@
 format: jb-book
 root: intro
 chapters:
-- file: 02_turtle/turtle_workshop.ipynb
-- file: project/project.md
+- file: 1_introduction/getting_started.md
+- file: 2_arithmetic_arrays_graphs/arithmetic.ipynb
+- file: 3_simulation/simulation.ipynb

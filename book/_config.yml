@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Computing for Natural Sciences
-author: Natural Sciences UCL
-logo: ucl.png
+title: IRS1 Computing
+author: Natural Sciences
+logo: EDIT1-tax-041516-AP.jpg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

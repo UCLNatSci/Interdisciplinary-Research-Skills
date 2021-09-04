@@ -10,7 +10,7 @@
 # 
 # As it is markdown, you can embed images, HTML, etc into your posts!
 # 
-# ![](https://myst-parser.readthedocs.io/en/latest/_static/logo.png)
+# ![](https://myst-parser.readthedocs.io/en/latest/_static/logo-wide.svg)
 # 
 # You can also $add_{math}$ and
 # 
