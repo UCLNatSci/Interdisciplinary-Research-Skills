@@ -7,3 +7,4 @@ chapters:
 - file: 1_introduction/getting_started.md
 - file: 2_arithmetic_arrays_graphs/arithmetic.ipynb
 - file: 3_simulation/simulation.ipynb
+- file: 4_image_segmentation/segmentation.ipynb
