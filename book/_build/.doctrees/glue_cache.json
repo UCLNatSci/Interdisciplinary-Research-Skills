@@ -1,1 +1,64 @@
-{}
+{
+  "2_turtle/turtle_workshop_answers": {
+    "turtle_circles": {
+      "output_type": "display_data",
+      "metadata": {
+        "image/png": {
+          "width": 259,
+          "height": 248
+        },
+        "scrapbook": {
+          "name": "turtle_circles",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/home/user/IRS_git/Interdisciplinary-Research-Skills/book/_build/jupyter_execute/2_turtle/turtle_workshop_answers_8_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 288x288 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "turtle_rotated_squares": {
+      "output_type": "display_data",
+      "metadata": {
+        "image/png": {
+          "width": 263,
+          "height": 248
+        },
+        "scrapbook": {
+          "name": "turtle_rotated_squares",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/home/user/IRS_git/Interdisciplinary-Research-Skills/book/_build/jupyter_execute/2_turtle/turtle_workshop_answers_7_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 288x288 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "turtle_polygons": {
+      "output_type": "display_data",
+      "metadata": {
+        "image/png": {
+          "width": 255,
+          "height": 81
+        },
+        "scrapbook": {
+          "name": "turtle_polygons",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/home/user/IRS_git/Interdisciplinary-Research-Skills/book/_build/jupyter_execute/2_turtle/turtle_workshop_answers_6_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 288x288 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    }
+  }
+}
