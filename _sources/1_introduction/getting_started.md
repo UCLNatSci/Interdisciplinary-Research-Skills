@@ -276,12 +276,12 @@ print("y-coords:", y)
 
 This code opens the data file and reads the latitude and longitude from each row. It then translates each to pixel coordinates and appends the values to the two lists `x` and `y` (and don't worry, you won't understand this code yet).
 
----
-**INDENTATION**  
+```{margin}
+```{note}
+Indentation  
+: A peculiar feature of Python is the use of indentation to separate code blocks (other languages use curly brackets `{` and `}` or `begin ... end`). The above example has two levels of identation, one below the `with` statement and one below the `for` statement, each idented by exacly four space characters.
 
-A peculiar feature of Python is the use of indentation to separate code blocks (other languages use curly brackets `{` and `}` or `begin ... end`). The above example has two levels of identation, one below the `with` statement and one below the `for` statement, each idented by exacly four space characters.
-
----
+```
 
 ### Step 6: Plotting the Hurricane
 
@@ -327,6 +327,6 @@ plt.imshow(img,zorder=0)
 anim.save('hurricane_irma.mp4', writer = 'ffmpeg', fps=30)
 ```
 
-After running the code, a new file `hurricane_irma.mp4` will appear in the `Workshop` folder (be patient, the code might take a little time to run).
+After running the code, a new file `hurricane_irma.mp4` will appear in the `Workshop_1` folder (be patient, the code might take a little time to run).
 
 > Click on the file `hurricane_irma.mp4` to view the movie.
