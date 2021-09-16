@@ -1,17 +1,23 @@
 # Workshop 1: Jupyter Notebooks
 
-Before you start, you need to create a Cocalc account and add your partner as a collaborator [TODO: Link to instructions]
+We will be using an online platform called `Cocalc` to run and edit `notebooks` which run `Python` code. `Cocalc` is a collaborative computing platform, which means that you can interactively share your code with other users of the platform.
+
+In today's workshop you will get started using Cocalc to edit and run Python notebook files.
 
 ## Part 1: Editing and Running Notebooks
+
+Follow the the instruction below to create a Cocalc account and run a notebook file.
+
+> Before you start, you need to find a partner. The person sitting next to you will do fine!
 
 ### Step 1: Set up your Cocalc Project
 
 > Follow these steps to log in to Cocalc and set up collaboration:
 
 1. Navigate to the Cocalc web site www.cocalc.com.
-1. Click Sign In
-1. Create an account using your UCL email address userID @ ucl.ac.uk (e.g. zcqxxxx @ ucl.ac.uk)
-1. You should see a Project titled something like '[your name] - NSCI0010_XX_XX'. If you don't, this might be because you didn't use the correct email address in step 3.
+1. Click 'Sign In'
+1. Create an account using your UCL email address userID@ucl.ac.uk (e.g. zcqxxxx@ucl.ac.uk)
+1. You should see a Project titled something like '[your name] - NSCI0010_21_22'. If you don't, this might be because you didn't use the correct email address in step 3.
 1. Click 'Account' in the top-right hand corner.
 1. Enter your first and last names. You can also change your profile picture and other settings if you wish.
 1. Click 'Projects' in the top-left corner.
@@ -28,14 +34,21 @@ Your project is essentially a virtual computer hosted in the cloud, and it comes
 
 >Click on the `Tutorials` folder then the `Workshop 1` folder.
 
----
-**DEFINITIONS**:  
-**Cocalc** - the online platform we will be using, providing access to virtual computers hosted in the cloud.  
-**Project** - Every student has a Cocalc account allowing access to a project, which is a virtual computer including operating system (Linux) and software libraries.  
-**Jupyter Notebook** - a type of file which contains Python code and formatted text, allowing us to combine computations, results and descriptive text in a single file. It is also sometimes called an IPython Notebook, and has the extension `.ipynb`.  
-**Python** - the programming language allowing us to perform scientific computing.
+```{margin}
+```{note}
+Cocalc
+: The online platform we will be using, providing access to virtual computers hosted in the cloud.
 
----
+Project
+: Every student has a Cocalc account allowing access to a project, which is a virtual computer including operating system (Linux) and software libraries.
+
+Jupyter Notebook
+: A type of file which contains Python code and formatted text, allowing us to combine computations, results and descriptive text in a single file. It is also sometimes called an IPython Notebook, and has the extension `.ipynb`.
+
+Python
+: The programming language allowing us to perform scientific computing.
+
+```
 
 ### Step 3: Open the *Barnsley_Fern.ipynb* notebook file
 > Click on the file `Barnsley_Fern.ipynb` to open the Jupyter Notebook file.
@@ -109,6 +122,14 @@ Instead of clicking the run button, we can use the keyboard shortcut `Shift + En
 
 We will create a Notebook which generates a plot displaying the path of a Hurricane. It will read a time series of hurricane co-ordinates from a text file, and plot the co-ordinates on an image of the Atlantic Ocean.
 ![a](hurricane.png)
+
+We will need to use the following two files:
+
+<a href="atlantic-basin.png" download>atlantic-basin.png</a>  
+<a href="irma.csv" download>irma.csv</a>
+
+> Download the two files `atlantic-basin.png` and `irma.csv` to your computer.
+
 ### Step 1: Navigating the File System
 
 The Cocalc Project contains a hierarchical file system much like an ordinary PC. To open the file browser, click the Files button on the toolbar. To navigate the file system, use the 'Current Folder' breadcrumb and the File List. Click on a folder in the list to open the folder, and click the breadcrumb to navigate back up the folder tree.  
@@ -117,7 +138,7 @@ The Cocalc Project contains a hierarchical file system much like an ordinary PC.
 
 To create a new file in the current folder, type its name in the  the 'New File Name' box, then click the arrow next to the 'New File' button and select the file type. To create a new folder, select 'Folder' at the bottom of the list of file types.
 
-> Navigate to the folder `01_Introduction` then create a new file `Hurricane.ipynb`. (You can either type the full file name including extension `.ipynb`, or just type `Hurricane` then select 'Jupyter Notebook' from the list).
+> Create a new file `Hurricane.ipynb` in the `Workshop_1` folder. (You can either type the full file name including extension `.ipynb`, or just type `Hurricane` then select 'Jupyter Notebook' from the list).
 
 ### Step 2: Plotting Points
 
@@ -152,7 +173,7 @@ plt.ylim(0, 10)
 
 In the next step we will display an image of the Atlantic Ocean. First we need to upload the image file to our Cocalc project. To upload a file, open the file browser, navigate to the target folder then click the 'upload file' button.
 
-> Upload the file `atlantic-basin.png` to the `01_Introduction` folder.
+> Upload the file `atlantic-basin.png` to the `Workshop_1` folder.
 
 Next, we will write code to display the image file.
 
@@ -197,13 +218,14 @@ print("NY x pos:", x_NY)
 print("NY y pos:", y_NY)
 ```
 
-This is a lot of code! Don't worry if you don't understand what each line is doing.
+This is a lot of code, but don't worry. You don't understand what each line is doing.
 
----
-**COMMENTS**  
-The Python interpreter ignores any text that appears after the `#` symbol. These lines are **comments** and I have added them to explain what the Python code is doing.
+```{margin}
+```{note}
+Comments
+: The Python interpreter ignores any text that appears after the `#` symbol. These lines are **comments** and I have added them to explain what the Python code is doing.
 
----
+```
 
 To add the location of New York to the map, use the `scatter` function as before.
 
@@ -219,7 +241,7 @@ plt.text(x_NY, y_NY, "New York", color="white")
 
 The co-ordinates of the Hurricane are contained in the file `irma.csv`.
 
-> Upload the file `irma.csv` to the `01_Introduction` folder.
+> Upload the file `irma.csv` to the `Workshop_1` folder.
 
 Each line of the file contains data about the Hurricane at a single time point, separated by commas.
 
@@ -305,6 +327,6 @@ plt.imshow(img,zorder=0)
 anim.save('hurricane_irma.mp4', writer = 'ffmpeg', fps=30)
 ```
 
-After running the code, a new file `hurricane_irma.mp4` will appear in the `01_Introduction` folder (be patient, the code might take a little time to run).
+After running the code, a new file `hurricane_irma.mp4` will appear in the `Workshop` folder (be patient, the code might take a little time to run).
 
 > Click on the file `hurricane_irma.mp4` to view the movie.

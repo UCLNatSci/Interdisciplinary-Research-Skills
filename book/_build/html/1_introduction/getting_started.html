@@ -303,9 +303,14 @@
                 
   <div class="section" id="workshop-1-jupyter-notebooks">
 <h1>Workshop 1: Jupyter Notebooks<a class="headerlink" href="#workshop-1-jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
-<p>Before you start, you need to create a Cocalc account and add your partner as a collaborator [TODO: Link to instructions]</p>
+<p>We will be using an online platform called <code class="docutils literal notranslate"><span class="pre">Cocalc</span></code> to run and edit <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> which run <code class="docutils literal notranslate"><span class="pre">Python</span></code> code. <code class="docutils literal notranslate"><span class="pre">Cocalc</span></code> is a collaborative computing platform, which means that you can interactively share your code with other users of the platform.</p>
+<p>In today’s workshop you will get started using Cocalc to edit and run Python notebook files.</p>
 <div class="section" id="part-1-editing-and-running-notebooks">
 <h2>Part 1: Editing and Running Notebooks<a class="headerlink" href="#part-1-editing-and-running-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>Follow the the instruction below to create a Cocalc account and run a notebook file.</p>
+<blockquote>
+<div><p>Before you start, you need to find a partner. The person sitting next to you will do fine!</p>
+</div></blockquote>
 <div class="section" id="step-1-set-up-your-cocalc-project">
 <h3>Step 1: Set up your Cocalc Project<a class="headerlink" href="#step-1-set-up-your-cocalc-project" title="Permalink to this headline">¶</a></h3>
 <blockquote>
@@ -313,9 +318,9 @@
 </div></blockquote>
 <ol class="simple">
 <li><p>Navigate to the Cocalc web site <a class="reference external" href="http://www.cocalc.com">www.cocalc.com</a>.</p></li>
-<li><p>Click Sign In</p></li>
-<li><p>Create an account using your UCL email address userID &#64; <a class="reference external" href="http://ucl.ac.uk">ucl.ac.uk</a> (e.g. zcqxxxx &#64; <a class="reference external" href="http://ucl.ac.uk">ucl.ac.uk</a>)</p></li>
-<li><p>You should see a Project titled something like ‘[your name] - NSCI0010_XX_XX’. If you don’t, this might be because you didn’t use the correct email address in step 3.</p></li>
+<li><p>Click ‘Sign In’</p></li>
+<li><p>Create an account using your UCL email address <a class="reference external" href="mailto:userID&#37;&#52;&#48;ucl&#46;ac&#46;uk">userID<span>&#64;</span>ucl<span>&#46;</span>ac<span>&#46;</span>uk</a> (e.g. <a class="reference external" href="mailto:zcqxxxx&#37;&#52;&#48;ucl&#46;ac&#46;uk">zcqxxxx<span>&#64;</span>ucl<span>&#46;</span>ac<span>&#46;</span>uk</a>)</p></li>
+<li><p>You should see a Project titled something like ‘[your name] - NSCI0010_21_22’. If you don’t, this might be because you didn’t use the correct email address in step 3.</p></li>
 <li><p>Click ‘Account’ in the top-right hand corner.</p></li>
 <li><p>Enter your first and last names. You can also change your profile picture and other settings if you wish.</p></li>
 <li><p>Click ‘Projects’ in the top-left corner.</p></li>
@@ -335,14 +340,23 @@
 <blockquote>
 <div><p>Click on the <code class="docutils literal notranslate"><span class="pre">Tutorials</span></code> folder then the <code class="docutils literal notranslate"><span class="pre">Workshop</span> <span class="pre">1</span></code> folder.</p>
 </div></blockquote>
-<hr class="docutils" />
-<p><strong>DEFINITIONS</strong>:<br />
-<strong>Cocalc</strong> - the online platform we will be using, providing access to virtual computers hosted in the cloud.<br />
-<strong>Project</strong> - Every student has a Cocalc account allowing access to a project, which is a virtual computer including operating system (Linux) and software libraries.<br />
-<strong>Jupyter Notebook</strong> - a type of file which contains Python code and formatted text, allowing us to combine computations, results and descriptive text in a single file. It is also sometimes called an IPython Notebook, and has the extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>.<br />
-<strong>Python</strong> - the programming language allowing us to perform scientific computing.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple myst">
+<dt>Cocalc</dt><dd><p>The online platform we will be using, providing access to virtual computers hosted in the cloud.</p>
+</dd>
+<dt>Project</dt><dd><p>Every student has a Cocalc account allowing access to a project, which is a virtual computer including operating system (Linux) and software libraries.</p>
+</dd>
+<dt>Jupyter Notebook</dt><dd><p>A type of file which contains Python code and formatted text, allowing us to combine computations, results and descriptive text in a single file. It is also sometimes called an IPython Notebook, and has the extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>.</p>
+</dd>
+<dt>Python</dt><dd><p>The programming language allowing us to perform scientific computing.</p>
+</dd>
+</dl>
 </div>
-<hr class="docutils" />
+</div>
+</div>
 <div class="section" id="step-3-open-the-barnsley-fern-ipynb-notebook-file">
 <h3>Step 3: Open the <em>Barnsley_Fern.ipynb</em> notebook file<a class="headerlink" href="#step-3-open-the-barnsley-fern-ipynb-notebook-file" title="Permalink to this headline">¶</a></h3>
 <blockquote>
@@ -419,13 +433,19 @@
 <h2>Part 2: Creating a Python Notebook<a class="headerlink" href="#part-2-creating-a-python-notebook" title="Permalink to this headline">¶</a></h2>
 <p>We will create a Notebook which generates a plot displaying the path of a Hurricane. It will read a time series of hurricane co-ordinates from a text file, and plot the co-ordinates on an image of the Atlantic Ocean.
 <img alt="a" src="../_images/hurricane.png" /></p>
+<p>We will need to use the following two files:</p>
+<p><a href="atlantic-basin.png" download>atlantic-basin.png</a><br />
+<a href="irma.csv" download>irma.csv</a></p>
+<blockquote>
+<div><p>Download the two files <code class="docutils literal notranslate"><span class="pre">atlantic-basin.png</span></code> and <code class="docutils literal notranslate"><span class="pre">irma.csv</span></code> to your computer.</p>
+</div></blockquote>
 <div class="section" id="step-1-navigating-the-file-system">
 <h3>Step 1: Navigating the File System<a class="headerlink" href="#step-1-navigating-the-file-system" title="Permalink to this headline">¶</a></h3>
 <p>The Cocalc Project contains a hierarchical file system much like an ordinary PC. To open the file browser, click the Files button on the toolbar. To navigate the file system, use the ‘Current Folder’ breadcrumb and the File List. Click on a folder in the list to open the folder, and click the breadcrumb to navigate back up the folder tree.</p>
 <p><img alt="a" src="../_images/cocalc.png" /></p>
 <p>To create a new file in the current folder, type its name in the  the ‘New File Name’ box, then click the arrow next to the ‘New File’ button and select the file type. To create a new folder, select ‘Folder’ at the bottom of the list of file types.</p>
 <blockquote>
-<div><p>Navigate to the folder <code class="docutils literal notranslate"><span class="pre">01_Introduction</span></code> then create a new file <code class="docutils literal notranslate"><span class="pre">Hurricane.ipynb</span></code>. (You can either type the full file name including extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>, or just type <code class="docutils literal notranslate"><span class="pre">Hurricane</span></code> then select ‘Jupyter Notebook’ from the list).</p>
+<div><p>Create a new file <code class="docutils literal notranslate"><span class="pre">Hurricane.ipynb</span></code> in the <code class="docutils literal notranslate"><span class="pre">Workshop_1</span></code> folder. (You can either type the full file name including extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>, or just type <code class="docutils literal notranslate"><span class="pre">Hurricane</span></code> then select ‘Jupyter Notebook’ from the list).</p>
 </div></blockquote>
 </div>
 <div class="section" id="step-2-plotting-points">
@@ -461,7 +481,7 @@
 <h3>Step 3: Plotting an Image<a class="headerlink" href="#step-3-plotting-an-image" title="Permalink to this headline">¶</a></h3>
 <p>In the next step we will display an image of the Atlantic Ocean. First we need to upload the image file to our Cocalc project. To upload a file, open the file browser, navigate to the target folder then click the ‘upload file’ button.</p>
 <blockquote>
-<div><p>Upload the file <code class="docutils literal notranslate"><span class="pre">atlantic-basin.png</span></code> to the <code class="docutils literal notranslate"><span class="pre">01_Introduction</span></code> folder.</p>
+<div><p>Upload the file <code class="docutils literal notranslate"><span class="pre">atlantic-basin.png</span></code> to the <code class="docutils literal notranslate"><span class="pre">Workshop_1</span></code> folder.</p>
 </div></blockquote>
 <p>Next, we will write code to display the image file.</p>
 <blockquote>
@@ -504,11 +524,17 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NY y pos:&quot;</span><span class="p">,</span> <span class="n">y_NY</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This is a lot of code! Don’t worry if you don’t understand what each line is doing.</p>
-<hr class="docutils" />
-<p><strong>COMMENTS</strong><br />
-The Python interpreter ignores any text that appears after the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol. These lines are <strong>comments</strong> and I have added them to explain what the Python code is doing.</p>
-<hr class="docutils" />
+<p>This is a lot of code, but don’t worry. You don’t understand what each line is doing.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple myst">
+<dt>Comments</dt><dd><p>The Python interpreter ignores any text that appears after the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol. These lines are <strong>comments</strong> and I have added them to explain what the Python code is doing.</p>
+</dd>
+</dl>
+</div>
+</div>
 <p>To add the location of New York to the map, use the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> function as before.</p>
 <blockquote>
 <div><p>In a new code cell, enter the following code</p>
@@ -523,7 +549,7 @@ The Python interpreter ignores any text that appears after the <code class="docu
 <h3>Step 5: Loading the Data<a class="headerlink" href="#step-5-loading-the-data" title="Permalink to this headline">¶</a></h3>
 <p>The co-ordinates of the Hurricane are contained in the file <code class="docutils literal notranslate"><span class="pre">irma.csv</span></code>.</p>
 <blockquote>
-<div><p>Upload the file <code class="docutils literal notranslate"><span class="pre">irma.csv</span></code> to the <code class="docutils literal notranslate"><span class="pre">01_Introduction</span></code> folder.</p>
+<div><p>Upload the file <code class="docutils literal notranslate"><span class="pre">irma.csv</span></code> to the <code class="docutils literal notranslate"><span class="pre">Workshop_1</span></code> folder.</p>
 </div></blockquote>
 <p>Each line of the file contains data about the Hurricane at a single time point, separated by commas.</p>
 <blockquote>
@@ -604,7 +630,7 @@ The Python interpreter ignores any text that appears after the <code class="docu
 <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;hurricane_irma.mp4&#39;</span><span class="p">,</span> <span class="n">writer</span> <span class="o">=</span> <span class="s1">&#39;ffmpeg&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>After running the code, a new file <code class="docutils literal notranslate"><span class="pre">hurricane_irma.mp4</span></code> will appear in the <code class="docutils literal notranslate"><span class="pre">01_Introduction</span></code> folder (be patient, the code might take a little time to run).</p>
+<p>After running the code, a new file <code class="docutils literal notranslate"><span class="pre">hurricane_irma.mp4</span></code> will appear in the <code class="docutils literal notranslate"><span class="pre">Workshop</span></code> folder (be patient, the code might take a little time to run).</p>
 <blockquote>
 <div><p>Click on the file <code class="docutils literal notranslate"><span class="pre">hurricane_irma.mp4</span></code> to view the movie.</p>
 </div></blockquote>
