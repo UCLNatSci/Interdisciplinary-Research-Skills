@@ -9,6 +9,12 @@
 # 
 # In this workshop, we will investigate a 'Turtle Graphics' program using Python, and use it to demonstrate some key programming concepts.
 # 
+# :::{admonition} What you'll learn
+# 1. How to construct a Python program from a sequence of instructions
+# 1. How to repeat sections of code using loops
+# 1. How to assemble more complicated programs by combining instructions into functions
+# :::
+# 
 # ## Question 1
 # 
 # The code below implements a simple Turtle Graphics program. Don't worry, you're not expected to understand it - some of this is quite advanced!
@@ -82,6 +88,10 @@ draw_forward(1)
 # 
 # > In a new code cell, write code to instruct the Turtle to draw a regular hexagon (you will need to choose a suitable rotation angle).
 # 
+# :::{admonition} Computer Program
+# A computer program is an ordered sequence of instructions which direct the computer to perform a specific task. The computer executes each instruction in turn, resulting in the desired output.
+# :::
+# 
 # ## Question 2
 # 
 # In principle, we could use the same technique to generate any $n$-sided polygon. But there's a smarter way, which means that we don't have to endlessly repeat ourselves, using *loops*. Here is how to draw a square using a `for` loop:
@@ -96,6 +106,15 @@ for i in range(4):
 
 
 # > Rewrite your hexagon code using a `for` loop.
+# 
+# :::{admonition} `for` loop
+# A `for` loop instructs the computer to repeat a set of instructions a specified number of times. For example, the following code would print the numbers 1 to 10.
+# 
+# ```
+# for i in range(10):
+#     print(i)
+# ```
+# :::
 # 
 # ## Question 3
 # 
@@ -122,7 +141,9 @@ for i in range(4):
 # ```{glue:} turtle_polygons
 # ```
 # 
-# `
+# :::{admonition} Functions
+# A function is a set of instructions combined together to achieve a specific outcome. Functions are a good alternative to having repeating blocks of code in a program.
+# :::
 
 # 
 # ## Question 4

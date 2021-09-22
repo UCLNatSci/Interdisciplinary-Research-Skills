@@ -1,14 +1,25 @@
 # Workshop 1: Jupyter Notebooks
 
-We will be using an online platform called `Cocalc` to run and edit `notebooks` which run `Python` code. `Cocalc` is a collaborative computing platform, which means that you can interactively share your code with other users of the platform.
+We will be using an online platform called `Cocalc` to run and edit `notebooks` which run `Python` code. `Cocalc` is a collaborative computing platform, which means that you can interactively share your code with other users of the platform. By the end of the workshop you will be comfortable creating, editing and running notebook files using the platform. You will also see a lot of Python code; don't worry you're not expected to understand it yet.
 
-In today's workshop you will get started using Cocalc to edit and run Python notebook files.
+:::{admonition} What you'll learn
+1. How to set up Cocalc for collaborative programming
+1. How to open, edit and run notebooks
+1. How to create *markdown* and *code* cells
+1. How to create a notebook from scratch
+:::
+
+The workshops can be completed on your own. However, in order to get the most out of them you are encouraged to work in pairs - to share learning, insights and challenges!
+
+:::{admonition} Before you begin
+:class: warning
+Find a partner. The person setting next to will do fine. Threesomes are also OK!
+:::
+
 
 ## Part 1: Editing and Running Notebooks
 
 Follow the the instruction below to create a Cocalc account and run a notebook file.
-
-> Before you start, you need to find a partner. The person sitting next to you will do fine!
 
 ### Step 1: Set up your Cocalc Project
 
@@ -125,8 +136,8 @@ We will create a Notebook which generates a plot displaying the path of a Hurric
 
 We will need to use the following two files:
 
-<a href="atlantic-basin.png" download>atlantic-basin.png</a>  
-<a href="irma.csv" download>irma.csv</a>
+<a href="../workshop_1/atlantic-basin.png" download>atlantic-basin.png</a>  
+<a href="../workshop_1/irma.csv" download>irma.csv</a>
 
 > Download the two files `atlantic-basin.png` and `irma.csv` to your computer.
 

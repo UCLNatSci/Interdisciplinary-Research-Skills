@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: IRS1 Computing
+title: Natural Sciences Computing Workshops
 author: Natural Sciences
 logo: EDIT1-tax-041516-AP.jpg
 
@@ -38,3 +38,7 @@ parse:
     - linkify
     - substitution
     - colon_fence
+    
+sphinx:
+  config:
+    html_extra_path: ['files']

@@ -1,11 +1,26 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Workshop 2: Computation and Plotting
+# # Workshop 3: Computation and Plotting
 # 
-# ## Introduction
+# Fundamentally, a computer is a calculator, and a computer program is a sequence of instructions which performs a mathematical calculation. In today's workshop you'll learn how to write a program which calculates and graphs the movement of an object, given an equation representing its motion in time.
 # 
-# Let's start with a simple example from phyiscs: the motion of an object under gravity.
+# :::{admonition} What you'll learn
+# 1. How to create Python variables to store numerical values
+# 1. How to perform calculations on those variables
+# 1. How to use arrays to perform calculations on whole sequences of values
+# 1. How to plot the result as a line graph or animation
+# :::
+# 
+# We'll start with a simple example from phyiscs: the motion of an object under gravity.
+# 
+# ```{figure} cannon.jpg
+# ---
+# height: 150px
+# name: cannon
+# ---
+# A projectile fired horizontally from a cannon.
+# ```
 # 
 # A projectile fired horizontally at a speed $v_0 = 5~\mathrm{m/s}$ from an initial height $y_0 = 200~\mathrm{m}$ follows a trajectory given by the following equations:
 # 
@@ -39,7 +54,7 @@ print("y (metres):", y)
 
 # First, we set the value of variables `v_0`, `y_0` and `g` and `t`, then calculate the value of `y` using the expression `y_0 - 0.5 * g * t ** 2`. Notice that we use `*` for multiplication but `**` for exponentiation!
 # 
-# Finally we use the `print` statement to print the output.
+# Finally we use the `print` fnction to display the output.
 # 
 # > Copy the above code and add two lines of code to calculate and print the $x$ position of the projectile.
 
@@ -47,6 +62,24 @@ print("y (metres):", y)
 # 
 # > Estimate the time the projectile reaches the ground by changing `t` until `y` is zero (to the nearest metre)
 # 
+# :::{admonition} Variables
+# A variable is a way of storing a value in a computer program. Think of a variable like a container and the name of the variable as the label on the container which shows us what is inside.
+# ```
+# x = 35
+# ```
+# 
+# ```{image} var.png
+# :width: 100px
+# ```
+# 
+# To display the value of a variable, use the `print` function.
+# 
+# ```
+# print(x)
+# 
+# 35
+# ```
+# :::
 
 # Next we'd like to plot the projectile trajectory on a graph, which will require the calculating `x` and `y` for a whole sequence of values of `t`. To do that, we will use an array.
 
@@ -59,7 +92,7 @@ print("y (metres):", y)
 
 import numpy as np
 
-t = np.arange(0, 10, 1)
+t = np.arange(0, 10)
 
 v_0 = 5
 y_0 = 200
@@ -75,12 +108,23 @@ print("y (metres):", y)
 
 # The first line `import numpy as np` is required because, by default, Python does not have the capability to work with arrays. To do so, we must `import` the `numpy` package which as well as arrays, contains a number of useful mathematical functions which we will use shortly.
 # 
-# > Remove the line `import numpy as np` and see what happens when you run the code.  
-# > What happens if you restart the kernel (choose `Restart Kernel...` from the `Kernel` menu) before running the code?
+# :::{admonition} Imports
+# `import` is used to import a *package* containing functions not available in Python by default. We only need to import the package once, so it is common practice to put the `import` statements together at the top of the file.
+# :::
 # 
-# The function `np.arange(0, 10, 1)` created an array of 10 time values `[0 1 2 3 4 5 6 7 8 9]`. This resulted in an array `y` of 10 distance values `[ 100. 95.095 80.38 55.855 21.52 -22.625 -76.58 -140.345 -213.92 -297.305]`.
+# The function `np.arange(0, 10)` created an array of 10 time values `[0 1 2 3 4 5 6 7 8 9]`. This resulted in an array `y` of 10 distance values `[ 100. 95.095 80.38 55.855 21.52 -22.625 -76.58 -140.345 -213.92 -297.305]`.
 # 
 # > Add code to calculate an array `x` representing the $x$ positions of the projectile.
+# 
+# :::{admonition} Arrays
+# An array is a sequence of values stored as a single variable. Use the code `np.arange(a, b)` to create an array of numbers from `a` to `b`. Note that `b` is excluded from the array!
+# ```
+# t = np.array(0, 5)
+# print(t)
+# 
+# [0 1 2 3 4]
+# ```
+# :::
 
 # The arrays `t` and `y` each contain 10 values. We can plot these values on a line graph:
 
@@ -96,6 +140,10 @@ plt.plot(t, y)
 # First, we imported another package `matplotlib.pyplot` which contains useful plotting functions. We then created a 5 by 5 figure and finally plotted `t` and `y` on the x- and y-axes respectively.
 # 
 # > Plot two more graphs: `x` against `t` and `x` against `y`. Make sure each is on a separate set of axes!
+# 
+# :::{admonition} Plotting
+# Functions for plotting are contained in a package called `matplotlib.pyplot`. To create a figure use the function `plt.figure` and to plot the graph use `plt.plot(x, y)` where `x` abd `y` are two arrays of the same length.
+# :::
 
 # ## Animation
 # 
@@ -152,4 +200,8 @@ display(HTML('<img src="' + filename + '?' + __counter__ + '">'))
 # 
 # Next, you could add in the orbits of Mercury and Venus. You will need to introduce new variables for the x and y position of these planets, you could call them `x_mercury`, `y_mercury` and so on.
 # 
-# Simulating the moon's orbit is interesting: the orbit of the moon is relative to Earth, so you will have to add its arrays to the Earth's arrays. 
+# Simulating the moon's orbit is interesting: the orbit of the moon is relative to Earth, so you will have to add its arrays to the Earth's arrays.
+# 
+# ## Take it further....
+# 
+# Why not [build an orrery out of lego](http://ecg.mit.edu/george/lego/orrery.html)?

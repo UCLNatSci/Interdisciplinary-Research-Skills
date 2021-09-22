@@ -1,35 +1,30 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Workshop 3: Modelling and Simulation
+# # Workshop 4: Modelling and Simulation
 # 
 # ## Introduction
 # 
-# What is model, what is a simulation? How does it fit into the scientific method?
+# A [scientific model ](https://www.britannica.com/science/scientific-modeling) is a mathematical or conceptual representation of a real-world process or phenomenon. In the previous workshop, we simulated the motion of an object moving under gravity using a simple quadratic equation. The equation was a model of the motion of the object, but in reality it's only a prediction of the object's movement. We can test the model by performing an experiment and comparing the result of the experiment against the prediction of the model. We can think of the model as a 'scientific hypothesis' which we confirm or refute based on the results of the experiment, a key component of the [scientific method](https://www.britannica.com/science/scientific-method). In reality we might find that the model is a reasonable appoximation to reality - but by making refinements to the model we can improve its predictive power.
 # 
-# ## Exponential Growth [from Khan Academy]
-# Bacteria grown in the lab provide an excellent example of exponential growth. In exponential growth, the population’s growth rate increases over time, in proportion to the size of the population.
-# Let’s take a look at how this works. Bacteria reproduce by binary fission (splitting in half), and the time between divisions is about an hour for many bacterial species. To see how this exponential growth, let's start by placing 100010001000 bacteria in a flask with an unlimited supply of nutrients.
-# After 111 hour: Each bacterium will divide, yielding 200020002000 bacteria (an increase of 100010001000 bacteria).
-# After 222 hours: Each of the 200020002000 bacteria will divide, producing 400040004000 (an increase of 200020002000 bacteria).
-# After 333 hours: Each of the 400040004000 bacteria will divide, producing 800080008000 (an increase of 400040004000 bacteria).
-# The key concept of exponential growth is that the population growth rate —the number of organisms added in each generation—increases as the population gets larger. And the results can be dramatic: after 111 day (242424 cycles of division), our bacterial population would have grown from 100010001000 to over 161616 billion!
+# :::{admonition} Coming soon
+# :class: hint
+# Later you will work in groups of 3 - 4 students to perform a real experiment which tests a model of the motion of an object under gravity.
+# :::
 # 
+# ## Exponential Growth
+# Bacteria grown in the lab provide example of **exponential growth**. In exponential growth, the growth rate of the population is in proportion to the size of the population. Bacteria reproduce by binary fission, and the time between divisions is about an hour. Suppose we place a 1000 bacteria in a flask with an unlimited supply of nutrients. After one hour, each bacterium will divide, yielding 2000 bacteria (an increase of 1000). After 2, each of the 2000 bacteria will divide, producing 4000 (an increase of 2000 bacteria). After 3 hours, each of the 4000 bacteria will divide, producing 8000 (an increase of 4000 bacteria). The key concept of exponential growth is that the number of cells added in each generation is in direct proportion to the number cells.
 # 
-# |Species|r|0|1|2|3|4|5|6|
-# |---|---|---|---|---|---|---|---|---|
-# |X|1.1|1|2|3|4|5|5|6|
-# |Y|.1|2|2|3|4|4|4|4|
+# ## Modelling Exponential Growth
 # 
-# ## Modelling exponential growth
-# 
-# Suppose a population of bacteria doubles in size every hour. Then we can model the population using the following equation:
+# Suppose a population of bacteria of species X doubles in size every hour. Then we can model the population using the following equation:
 # 
 # $$x_{i+1} = x_i + rx_i $$
 # 
-# where $x_i$ is the population at hour $i$. The equation simply represents the fact that the population at hour $i+1$ is $r+1$ times the population at hour $i$.
+# where $x_i$ is the population at hour $i$ and the growth rate $r=1$. The equation represents the fact that the population at hour $i+1$ is $r+1$ times the population at hour $i$.
 # 
-# Suppose that the initial population is exactly $1$ and we would like to simulate the population size for 12 hours.
+# Suppose that the initial population is exactly $1000$ cells and we would like to simulate the population size for 8 hours.
+# 
 
 # In[1]:
 
@@ -37,20 +32,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-n_hours = 12
-initial_population = 1
-pop = np.zeros(n_hours)
+r_X = 1
+n_hours = 8
+initial_population = 1000
+pop_X = np.zeros(n_hours + 1)
 
-pop[0] = initial_population
-for i in range(n_hours - 1):
-    pop[i + 1] = pop[i] + pop[i] * 2
+pop_X[0] = initial_population
+for i in range(n_hours):
+    pop_X[i + 1] = pop_X[i] + pop_X[i] * r_X
     
-print("Population of species X:", pop)
+print("Population of species X:", pop_X)
 
 
-# NB Python uses *exponential notation* to express decimal numbers e.g. $2048 = 2.048 \times 10^3$ is expressed as `2.048e+03`.
-# 
-# > Use the code above to simulate the growth of a population Y
+# :::{note}
+# Python uses *exponential notation* to express decimal numbers e.g. $2048 = 2.048 \times 10^3$ is expressed as `2.048e+03`.
+# :::
 # 
 # Using `plt.plot` we can visualise the population curve over the 12 hours:
 
@@ -58,67 +54,143 @@ print("Population of species X:", pop)
 
 
 plt.figure(figsize=(6,3))
-plt.plot(pop)
+plt.plot(pop_X)
 
 plt.xlabel("time (hours)")
 plt.ylabel("population")
 plt.title("Species X")
 
 
-# > Plot the predicted population of species Y
-
-# Below are the results of a laboratory experiment conducted in order to measure the growth in the two species of bacteria. The population of each was recorded every hour (if you are interested in how this might be performed in practice, see [here](https://courses.lumenlearning.com/boundless-microbiology/chapter/counting-bacteria/)).
+# Now suppose we have another bacterial species Y with a slower growth rate $r = 0.1$.
 # 
-# |Species|0|1|2|3|4|5|6|
-# |---|---|---|---|---|---|---|---|
-# |X|1|2|3|4|5|5|6|
-# |Y|2|2|3|4|4|4|4|
+# |Species|r|
+# |---|---|
+# |X|1.0|
+# |Y|0.1|
+# 
+# > Use the code above to simulate the growth of population Y.
+# 
+# > Plot the predicted population of species Y on a separate figure.
+
+# ## Experimental Data
+# 
+# Now suppose that we perform a laboratory experiment in order to measure the growth in the two species of bacteria. The population of each was recorded every hour.
+# 
+# :::{seealso}
+# See [here](https://courses.lumenlearning.com/boundless-microbiology/chapter/counting-bacteria/) for how you might measure a bacterial population in practice.
+# :::
+# 
+# |Time (hours)|0|1|2|3|4|5|6|7|8|
+# |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+# |Species X population (thousands|1.0|2.18|4.45|8.91|16.1|31.49|60.89|117.58|214.4|
+# |Species Y population (thousands)|1.0|1.47|2.02|2.81|4.16|5.88|7.98|10.99|15.59|
 # 
 # Let's plot this experimental data on the same graph as the model simulation.
-# 
-# 
 
 # In[3]:
 
 
-data_x = np.array([1, 2, 3, 4, 5, 5, 6])
+data_X = np.array([  1.  ,   2.18,   4.45,   8.91,  16.1 ,  31.49,  60.89, 117.58, 214.4 ]) * 1000
 
 plt.figure(figsize=(6,3))
-plt.plot(pop)
-plt.plot(data_x)
+plt.plot(pop_X, label="model")
+plt.plot(data_X, label="experiment")
 
 plt.xlabel("time (hours)")
 plt.ylabel("population")
 plt.title("Species X")
+plt.legend()
 
 
-# > Plot the experimental population data for species Y on the same graph as the module simulation for species Y.
+# Notice that the the experimental data is a good fit to the model prediction, so at this point we can be confident in our model, and our value of $r=1$.
 # 
-# The experimenter continues the experiment for a full 24 hours. The results of the two experiment are in the two files `data_exp_X.txt` and `data_exp_Y.txt`. We can use the `numpy` function `np.loadtxt` to load the data into a numpy array:
+# > On a new figure, plot the experimental data and model prediction for species Y.
+# 
+# You should find that the model and experiment aren't such a good fit for species Y.
+# 
+# > By changing the value of `r_Y` until the two graphs coincide, determine a good value of $r$ for species Y.
+# 
+# The experimenter continues the experiment for a full 24 hours. The results of the experiment are in the files `data_exp_X.txt` and `data_exp_Y.txt`.
+# 
+# <a href="../workshop_4/data_exp_X" download>data_exp_X.txt</a>  
+# <a href="../workshop_4/data_exp_Y" download>data_exp_Y.txt</a>
+# 
+# We can use the `numpy` function `np.loadtxt` to load the data into a numpy array:
 
 # In[4]:
 
 
-data_x = np.loadtxt("data_exp_X.txt")
-print(data_x)
+data_X = np.loadtxt("data_exp_X.txt")
+print(data_X)
 
 
-# > Plot graphs for species for the two species, each containg the experimental and simulated populations for 24 hours.
-# > What do you notice? Does the model accurately predict the experiments?
-# 
-# You should have noticed that eventually the two populations stop increasing, likely due to exhausting resources such as nutrients or physical space. Our simple exponential model above is insufficient to take this into account.
+# We'll change the value of `n_hours` to `24` and re-run the model.
+
+# In[5]:
+
+
+r_X = 1
+n_hours = 24
+initial_population = 1000
+pop_X = np.zeros(n_hours + 1)
+
+pop_X[0] = initial_population
+for i in range(n_hours):
+    pop_X[i + 1] = pop_X[i] + pop_X[i] * r_X
+    
+plt.figure(figsize=(6,3))
+plt.plot(pop_X, label="model")
+plt.plot(data_X, label="experiment")
+
+plt.xlabel("time (hours)")
+plt.ylabel("population")
+plt.title("Species X")
+plt.legend()
+
+
+# The model and experimental data are no longer a good fit at all. At this scale, it looks like the experimental data is zero for the entire 24 hours. However, to see what's going on let's plot the experimental data alone:
+
+# In[6]:
+
+
+plt.figure(figsize=(6,3))
+plt.plot(data_X)
+
+
+# Notice that while the population increases exponentially at first, eventually it stops increasing, likely due to exhausting resources such as nutrients or physical space. Our simple exponential model above is insufficient to take this into account. If you like, you can try running the model for 24 hours to see how badly it fits this data.
 # 
 # Instead, we can consider a more sophisticated model, *logistic growth*.
 # 
+# ## Logistic Growth
+# 
+# The logistic equation describes the growth of a population where the growth rate is limited by resources.
 # $$x_{i+1} = x_i + r(1-x_i/K)x_i $$
 # 
 # the growth rate $r$ has been replaced by the term $r(1-x_i/K)$. For small populations (when $x_i$ is much less than $K$) the growth rate is close to $r$. As the population size approaches the value $K$, the growth rate reduces to zero.
 # 
-# > Adapt the simulation to use the new equation. You will need to create a new variable `K` and change the line `pop[i + 1] = pop[i] + pop[i] * 2`.
-# > Run the simulation for each species. You will need to choose an appropriate value of `K` for each.
+# :::{note}
+# $K$ is called the **carrying capacity**.
+# :::
+# 
+# > Simulate the growth of species X use the new equation. You will need to create a new variable `K_X` and change the line `pop[i + 1] = pop[i] + pop[i] * 2`. Use the value `K_X = 1e7`.
+# > Plot the experimental and model prediction on the same graph.
+# 
+# You should find that the two curves fit well, showing that our new model predicts the population growth well.
+# 
+# > Repeat the simulation for species Y. Determine values of $r$ and $K$ that best fit the experimental data.
 
 # ## Exercise
 # 
-# In the folder `data` are text files containing results of 4 bacterial population growth experiments. For each one, plot the data and by running a simulation for each, estimate the value of $r$ and $K$. Which data file corresponds to which experiment?
+# The following three text files contain the results of 3 bacterial population growth experiments. For each one, plot the data and by running a simulation for each, estimate the value of $r$ and $K$.
 # 
-# **TODO: generate the data and check**
+# <a href="../workshop_4/data_exp_A" download>data_exp_A.txt</a>  
+# <a href="../workshop_4/data_exp_B" download>data_exp_B.txt</a>  
+# <a href="../workshop_4/data_exp_B" download>data_exp_C.txt</a>
+# 
+# Which data file corresponds to which of the three species in the table below?
+# 
+# |Species|r|
+# |---|---|
+# |1|0.4|
+# |2|0.7|
+# |3|0.9|

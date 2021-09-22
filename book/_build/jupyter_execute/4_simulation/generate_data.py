@@ -7,35 +7,43 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-n_hours = 24
-initial_population = 1445
-pop = np.zeros(n_hours)
-rate = 1.1
-K = 10000000
+np.set_printoptions(suppress=True)
 
-pop[0] = initial_population
-for i in range(n_hours - 1):
-    pop[i + 1] = (pop[i] + pop[i] * rate * (1 - pop[i]/K)) * np.random.normal(1, 0.05)
-    
-print(pop)
-plt.plot(pop)
+def generate_data(name, n_hours, rate, K, pop_0):
 
-np.savetxt("data_exp_X.txt", pop)
+    initial_population = pop_0
+    pop = np.zeros(n_hours)
 
-n_hours = 24
-initial_population = 3087
-pop = np.zeros(n_hours)
-rate = .7
-K = 10000000
+    pop[0] = initial_population
+    for i in range(n_hours - 1):
+        pop[i + 1] = (pop[i] + pop[i] * rate * (1 - pop[i]/K)) * np.random.normal(1, 0.05)
 
-pop[0] = initial_population
-for i in range(n_hours - 1):
-    pop[i + 1] = (pop[i] + pop[i] * rate * (1 - pop[i]/K)) * np.random.normal(1, 0.05)
-    
-print(pop)
-plt.plot(pop)
+    plt.figure()
+    plt.plot(pop)
 
-np.savetxt("data_exp_Y.txt", pop)
+    np.savetxt("data_exp_{}.txt".format(name), pop * 1000)
+
+    s = "|".join([str(round(p, 2)) for p in pop[:9]])
+    print("|" + s + "|")
+
+    print(repr(np.round(pop[:9], 2)))
+
+
+# In[2]:
+
+
+np.random.seed(3)
+generate_data("X", 24, 1, 1000, 1)
+generate_data("Y", 24, .46, 55, 1)
+
+
+# In[3]:
+
+
+np.random.seed(3)
+generate_data("B", 24, 0.4, 55, 10)
+generate_data("C", 24, 0.7, 103, 1)
+generate_data("A", 24, 0.9, 540, 1)
 
 
 # In[ ]:

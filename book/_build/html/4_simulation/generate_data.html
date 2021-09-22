@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; IRS1 Computing</title>
+    <title>&lt;no title&gt; &#8212; Natural Sciences Computing Workshops</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -72,7 +72,7 @@
       <img src="../_static/EDIT1-tax-041516-AP.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">IRS1 Computing</h1>
+      <h1 class="site-logo" id="site-title">Natural Sciences Computing Workshops</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -83,7 +83,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Welcome to IRS1 Computing
+   Welcome to Natural Sciences Computing Workshops
   </a>
  </li>
 </ul>
@@ -100,12 +100,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../3_arithmetic_arrays_graphs/arithmetic.html">
-   Workshop 2: Computation and Plotting
+   Workshop 3: Computation and Plotting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="simulation.html">
-   Workshop 3: Modelling and Simulation
+   Workshop 4: Modelling and Simulation
   </a>
  </li>
  <li class="toctree-l1">
@@ -233,54 +233,72 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">n_hours</span> <span class="o">=</span> <span class="mi">24</span>
-<span class="n">initial_population</span> <span class="o">=</span> <span class="mi">1445</span>
-<span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_hours</span><span class="p">)</span>
-<span class="n">rate</span> <span class="o">=</span> <span class="mf">1.1</span>
-<span class="n">K</span> <span class="o">=</span> <span class="mi">10000000</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">pop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_population</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_hours</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="n">pop</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">K</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">n_hours</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">pop_0</span><span class="p">):</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;data_exp_X.txt&quot;</span><span class="p">,</span> <span class="n">pop</span><span class="p">)</span>
+    <span class="n">initial_population</span> <span class="o">=</span> <span class="n">pop_0</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_hours</span><span class="p">)</span>
 
-<span class="n">n_hours</span> <span class="o">=</span> <span class="mi">24</span>
-<span class="n">initial_population</span> <span class="o">=</span> <span class="mi">3087</span>
-<span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_hours</span><span class="p">)</span>
-<span class="n">rate</span> <span class="o">=</span> <span class="o">.</span><span class="mi">7</span>
-<span class="n">K</span> <span class="o">=</span> <span class="mi">10000000</span>
+    <span class="n">pop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_population</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_hours</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">pop</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">K</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
 
-<span class="n">pop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_population</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_hours</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="n">pop</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">rate</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">K</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;data_exp_Y.txt&quot;</span><span class="p">,</span> <span class="n">pop</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;data_exp_</span><span class="si">{}</span><span class="s2">.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">pop</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+
+    <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pop</span><span class="p">[:</span><span class="mi">9</span><span class="p">]])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pop</span><span class="p">[:</span><span class="mi">9</span><span class="p">],</span> <span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">generate_data</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">generate_data</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">.</span><span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.44500000e+03 3.02892771e+03 6.09427597e+03 1.27808300e+04
- 2.63808786e+04 5.66991561e+04 1.11849539e+05 2.34580628e+05
- 4.87939223e+05 9.72248473e+05 1.97407807e+06 3.67947483e+06
- 6.11157122e+06 8.59641906e+06 1.00999482e+07 9.94624004e+06
- 9.84656439e+06 9.59953617e+06 9.92561292e+06 1.05140725e+07
- 9.46254294e+06 1.01594871e+07 1.08424764e+07 8.72909640e+06]
-[3.08700000e+03 5.02676637e+03 9.06093535e+03 1.54882036e+04
- 2.78159868e+04 4.60602485e+04 8.58098947e+04 1.38457517e+05
- 2.43426837e+05 3.94677399e+05 6.87268866e+05 1.17630413e+06
- 2.04955617e+06 3.30482945e+06 4.89791092e+06 6.39593977e+06
- 7.84818040e+06 8.58241123e+06 8.88753799e+06 8.88759467e+06
- 1.02015436e+07 9.46796278e+06 1.01750004e+07 1.02180877e+07]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|1.0|2.18|4.45|8.91|16.1|31.49|60.89|117.58|214.4|
+array([  1.  ,   2.18,   4.45,   8.91,  16.1 ,  31.49,  60.89, 117.58,
+       214.4 ])
+|1.0|1.47|2.02|2.81|4.16|5.88|7.98|10.99|15.59|
+array([ 1.  ,  1.47,  2.02,  2.81,  4.16,  5.88,  7.98, 10.99, 15.59])
 </pre></div>
 </div>
-<img alt="../_images/generate_data_0_1.png" src="../_images/generate_data_0_1.png" />
+<img alt="../_images/generate_data_1_1.png" src="../_images/generate_data_1_1.png" />
+<img alt="../_images/generate_data_1_2.png" src="../_images/generate_data_1_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">generate_data</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">generate_data</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">generate_data</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|10.0|14.46|19.13|24.24|26.9|31.95|36.64|41.36|44.04|
+array([10.  , 14.46, 19.13, 24.24, 26.9 , 31.95, 36.64, 41.36, 44.04])
+|1.0|1.71|2.74|4.45|7.66|12.53|19.45|30.14|46.75|
+array([ 1.  ,  1.71,  2.74,  4.45,  7.66, 12.53, 19.45, 30.14, 46.75])
+|1.0|1.82|3.45|5.8|10.81|21.38|41.57|80.31|149.79|
+array([  1.  ,   1.82,   3.45,   5.8 ,  10.81,  21.38,  41.57,  80.31,
+       149.79])
+</pre></div>
+</div>
+<img alt="../_images/generate_data_2_1.png" src="../_images/generate_data_2_1.png" />
+<img alt="../_images/generate_data_2_2.png" src="../_images/generate_data_2_2.png" />
+<img alt="../_images/generate_data_2_3.png" src="../_images/generate_data_2_3.png" />
 </div>
 </div>
 

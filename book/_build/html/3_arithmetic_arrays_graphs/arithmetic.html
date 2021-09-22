@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workshop 2: Computation and Plotting &#8212; IRS1 Computing</title>
+    <title>Workshop 3: Computation and Plotting &#8212; Natural Sciences Computing Workshops</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Workshop 3: Modelling and Simulation" href="../4_simulation/simulation.html" />
+    <link rel="next" title="Workshop 4: Modelling and Simulation" href="../4_simulation/simulation.html" />
     <link rel="prev" title="Workshop 2: Turtle Graphics" href="../2_turtle/turtle_workshop.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -76,7 +76,7 @@
       <img src="../_static/EDIT1-tax-041516-AP.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">IRS1 Computing</h1>
+      <h1 class="site-logo" id="site-title">Natural Sciences Computing Workshops</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -87,7 +87,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Welcome to IRS1 Computing
+   Welcome to Natural Sciences Computing Workshops
   </a>
  </li>
 </ul>
@@ -104,12 +104,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Workshop 2: Computation and Plotting
+   Workshop 3: Computation and Plotting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../4_simulation/simulation.html">
-   Workshop 3: Modelling and Simulation
+   Workshop 4: Modelling and Simulation
   </a>
  </li>
  <li class="toctree-l1">
@@ -222,11 +222,6 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numpy-and-arrays">
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -246,6 +241,11 @@
    Virtual Orrery
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#take-it-further">
+   Take it further….
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -257,11 +257,23 @@
         
               <div>
                 
-  <div class="section" id="workshop-2-computation-and-plotting">
-<h1>Workshop 2: Computation and Plotting<a class="headerlink" href="#workshop-2-computation-and-plotting" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Let’s start with a simple example from phyiscs: the motion of an object under gravity.</p>
+  <div class="section" id="workshop-3-computation-and-plotting">
+<h1>Workshop 3: Computation and Plotting<a class="headerlink" href="#workshop-3-computation-and-plotting" title="Permalink to this headline">¶</a></h1>
+<p>Fundamentally, a computer is a calculator, and a computer program is a sequence of instructions which performs a mathematical calculation. In today’s workshop you’ll learn how to write a program which calculates and graphs the movement of an object, given an equation representing its motion in time.</p>
+<div class="admonition-what-you-ll-learn admonition">
+<p class="admonition-title">What you’ll learn</p>
+<ol class="simple">
+<li><p>How to create Python variables to store numerical values</p></li>
+<li><p>How to perform calculations on those variables</p></li>
+<li><p>How to use arrays to perform calculations on whole sequences of values</p></li>
+<li><p>How to plot the result as a line graph or animation</p></li>
+</ol>
+</div>
+<p>We’ll start with a simple example from phyiscs: the motion of an object under gravity.</p>
+<div class="figure align-default" id="cannon">
+<a class="reference internal image-reference" href="../_images/cannon.jpg"><img alt="../_images/cannon.jpg" src="../_images/cannon.jpg" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">A projectile fired horizontally from a cannon.</span><a class="headerlink" href="#cannon" title="Permalink to this image">¶</a></p>
+</div>
 <p>A projectile fired horizontally at a speed <span class="math notranslate nohighlight">\(v_0 = 5~\mathrm{m/s}\)</span> from an initial height <span class="math notranslate nohighlight">\(y_0 = 200~\mathrm{m}\)</span> follows a trajectory given by the following equations:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}x(t) = v_0t\\
@@ -297,7 +309,7 @@ y (metres): 155.855
 </div>
 </div>
 <p>First, we set the value of variables <code class="docutils literal notranslate"><span class="pre">v_0</span></code>, <code class="docutils literal notranslate"><span class="pre">y_0</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code>, then calculate the value of <code class="docutils literal notranslate"><span class="pre">y</span></code> using the expression <code class="docutils literal notranslate"><span class="pre">y_0</span> <span class="pre">-</span> <span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">g</span> <span class="pre">*</span> <span class="pre">t</span> <span class="pre">**</span> <span class="pre">2</span></code>. Notice that we use <code class="docutils literal notranslate"><span class="pre">*</span></code> for multiplication but <code class="docutils literal notranslate"><span class="pre">**</span></code> for exponentiation!</p>
-<p>Finally we use the <code class="docutils literal notranslate"><span class="pre">print</span></code> statement to print the output.</p>
+<p>Finally we use the <code class="docutils literal notranslate"><span class="pre">print</span></code> fnction to display the output.</p>
 <blockquote>
 <div><p>Copy the above code and add two lines of code to calculate and print the <span class="math notranslate nohighlight">\(x\)</span> position of the projectile.</p>
 </div></blockquote>
@@ -305,8 +317,21 @@ y (metres): 155.855
 <blockquote>
 <div><p>Estimate the time the projectile reaches the ground by changing <code class="docutils literal notranslate"><span class="pre">t</span></code> until <code class="docutils literal notranslate"><span class="pre">y</span></code> is zero (to the nearest metre)</p>
 </div></blockquote>
-<p>Next we’d like to plot the projectile trajectory on a graph, which will require the calculating <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> for a whole sequence of values of <code class="docutils literal notranslate"><span class="pre">t</span></code>. To do that, we will use an array.</p>
+<div class="admonition-variables admonition">
+<p class="admonition-title">Variables</p>
+<p>A variable is a way of storing a value in a computer program. Think of a variable like a container and the name of the variable as the label on the container which shows us what is inside.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">35</span>
+</pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/var.png"><img alt="../_images/var.png" src="../_images/var.png" style="width: 100px;" /></a>
+<p>To display the value of a variable, use the <code class="docutils literal notranslate"><span class="pre">print</span></code> function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="mi">35</span>
+</pre></div>
+</div>
+</div>
+<p>Next we’d like to plot the projectile trajectory on a graph, which will require the calculating <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> for a whole sequence of values of <code class="docutils literal notranslate"><span class="pre">t</span></code>. To do that, we will use an array.</p>
 <div class="section" id="numpy-and-arrays">
 <h2><code class="docutils literal notranslate"><span class="pre">Numpy</span></code> and arrays<a class="headerlink" href="#numpy-and-arrays" title="Permalink to this headline">¶</a></h2>
 <p>An array is a sequence of values that can be manipulated as a single variable. You can think of an array like a vector from mathematics. The following code is identical to previous, except <code class="docutils literal notranslate"><span class="pre">t</span></code> is now an array of values.</p>
@@ -314,7 +339,7 @@ y (metres): 155.855
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="n">v_0</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">y_0</span> <span class="o">=</span> <span class="mi">200</span>
@@ -338,14 +363,24 @@ y (metres): [ 200.     195.095  180.38   155.855  121.52    77.375   23.42   -40
 </div>
 </div>
 <p>The first line <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> is required because, by default, Python does not have the capability to work with arrays. To do so, we must <code class="docutils literal notranslate"><span class="pre">import</span></code> the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package which as well as arrays, contains a number of useful mathematical functions which we will use shortly.</p>
-<blockquote>
-<div><p>Remove the line <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> and see what happens when you run the code.<br />
-What happens if you restart the kernel (choose <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">Kernel...</span></code> from the <code class="docutils literal notranslate"><span class="pre">Kernel</span></code> menu) before running the code?</p>
-</div></blockquote>
-<p>The function <code class="docutils literal notranslate"><span class="pre">np.arange(0,</span> <span class="pre">10,</span> <span class="pre">1)</span></code> created an array of 10 time values <code class="docutils literal notranslate"><span class="pre">[0</span> <span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">6</span> <span class="pre">7</span> <span class="pre">8</span> <span class="pre">9]</span></code>. This resulted in an array <code class="docutils literal notranslate"><span class="pre">y</span></code> of 10 distance values <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">100.</span> <span class="pre">95.095</span> <span class="pre">80.38</span> <span class="pre">55.855</span> <span class="pre">21.52</span> <span class="pre">-22.625</span> <span class="pre">-76.58</span> <span class="pre">-140.345</span> <span class="pre">-213.92</span> <span class="pre">-297.305]</span></code>.</p>
+<div class="admonition-imports admonition">
+<p class="admonition-title">Imports</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code> is used to import a <em>package</em> containing functions not available in Python by default. We only need to import the package once, so it is common practice to put the <code class="docutils literal notranslate"><span class="pre">import</span></code> statements together at the top of the file.</p>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">np.arange(0,</span> <span class="pre">10)</span></code> created an array of 10 time values <code class="docutils literal notranslate"><span class="pre">[0</span> <span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">6</span> <span class="pre">7</span> <span class="pre">8</span> <span class="pre">9]</span></code>. This resulted in an array <code class="docutils literal notranslate"><span class="pre">y</span></code> of 10 distance values <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">100.</span> <span class="pre">95.095</span> <span class="pre">80.38</span> <span class="pre">55.855</span> <span class="pre">21.52</span> <span class="pre">-22.625</span> <span class="pre">-76.58</span> <span class="pre">-140.345</span> <span class="pre">-213.92</span> <span class="pre">-297.305]</span></code>.</p>
 <blockquote>
 <div><p>Add code to calculate an array <code class="docutils literal notranslate"><span class="pre">x</span></code> representing the <span class="math notranslate nohighlight">\(x\)</span> positions of the projectile.</p>
 </div></blockquote>
+<div class="admonition-arrays admonition">
+<p class="admonition-title">Arrays</p>
+<p>An array is a sequence of values stored as a single variable. Use the code <code class="docutils literal notranslate"><span class="pre">np.arange(a,</span> <span class="pre">b)</span></code> to create an array of numbers from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">b</span></code> is excluded from the array!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 <p>The arrays <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> each contain 10 values. We can plot these values on a line graph:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -357,7 +392,7 @@ What happens if you restart the kernel (choose <code class="docutils literal not
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff70f00a040&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f1272f43160&gt;]
 </pre></div>
 </div>
 <img alt="../_images/arithmetic_9_1.png" src="../_images/arithmetic_9_1.png" />
@@ -367,6 +402,10 @@ What happens if you restart the kernel (choose <code class="docutils literal not
 <blockquote>
 <div><p>Plot two more graphs: <code class="docutils literal notranslate"><span class="pre">x</span></code> against <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> against <code class="docutils literal notranslate"><span class="pre">y</span></code>. Make sure each is on a separate set of axes!</p>
 </div></blockquote>
+<div class="admonition-plotting admonition">
+<p class="admonition-title">Plotting</p>
+<p>Functions for plotting are contained in a package called <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>. To create a figure use the function <code class="docutils literal notranslate"><span class="pre">plt.figure</span></code> and to plot the graph use <code class="docutils literal notranslate"><span class="pre">plt.plot(x,</span> <span class="pre">y)</span></code> where <code class="docutils literal notranslate"><span class="pre">x</span></code> abd <code class="docutils literal notranslate"><span class="pre">y</span></code> are two arrays of the same length.</p>
+</div>
 </div>
 <div class="section" id="animation">
 <h2>Animation<a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h2>
@@ -418,6 +457,10 @@ y(t) = d\sin(2\pi t/p)\end{split}\]</div>
 <p>Next, you could add in the orbits of Mercury and Venus. You will need to introduce new variables for the x and y position of these planets, you could call them <code class="docutils literal notranslate"><span class="pre">x_mercury</span></code>, <code class="docutils literal notranslate"><span class="pre">y_mercury</span></code> and so on.</p>
 <p>Simulating the moon’s orbit is interesting: the orbit of the moon is relative to Earth, so you will have to add its arrays to the Earth’s arrays.</p>
 </div>
+<div class="section" id="take-it-further">
+<h2>Take it further….<a class="headerlink" href="#take-it-further" title="Permalink to this headline">¶</a></h2>
+<p>Why not <a class="reference external" href="http://ecg.mit.edu/george/lego/orrery.html">build an orrery out of lego</a>?</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -462,7 +505,7 @@ y(t) = d\sin(2\pi t/p)\end{split}\]</div>
         <a class="right-next" href="../4_simulation/simulation.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Workshop 3: Modelling and Simulation</p>
+                <p class="prevnext-title">Workshop 4: Modelling and Simulation</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
