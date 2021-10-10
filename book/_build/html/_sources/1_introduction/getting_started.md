@@ -27,14 +27,14 @@ Follow the the instruction below to create a Cocalc account and run a notebook f
 
 1. Navigate to the Cocalc web site www.cocalc.com.
 1. Click 'Sign In'
-1. Create an account using your UCL email address userID@ucl.ac.uk (e.g. zcqxxxx@ucl.ac.uk)
+1. Create an account using your UCL email address e.g. firstname.surname.21@ucl.ac.uk.
 1. You should see a Project titled something like '[your name] - NSCI0010_21_22'. If you don't, this might be because you didn't use the correct email address in step 3.
 1. Click 'Account' in the top-right hand corner.
 1. Enter your first and last names. You can also change your profile picture and other settings if you wish.
 1. Click 'Projects' in the top-left corner.
-1. To add your partner as a collaborator, click on your name then enter your partner's full name or email address (in the form zcqxxxx@ucl.ac.uk) in the box.
+1. To add your partner as a collaborator, click on your name then enter your partner's full name or email address in the box.
 
-Your project is essentially a virtual computer hosted in the cloud, and it comes preinstalled with all the software and tools you need to get Python programming straight away!
+Your project is essentially a virtual computer hosted in the cloud, and it comes preinstalled with all the software and tools you need to get Python programming straight away.
 
 > Test that you have set up your project correctly:
 
