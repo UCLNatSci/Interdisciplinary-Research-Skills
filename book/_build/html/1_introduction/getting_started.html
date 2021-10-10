@@ -51,7 +51,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Workshop 2: Turtle Graphics" href="../2_turtle/turtle_workshop.html" />
     <link rel="prev" title="Welcome to Natural Sciences Computing Workshops" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -93,26 +92,6 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Workshop 1: Jupyter Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../2_turtle/turtle_workshop.html">
-   Workshop 2: Turtle Graphics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_arithmetic_arrays_graphs/arithmetic.html">
-   Workshop 3: Computation and Plotting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../4_simulation/simulation.html">
-   Workshop 4: Modelling and Simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../5_image_segmentation/segmentation.html">
-   Workshop 4: Image Segmentation
   </a>
  </li>
 </ul>
@@ -166,22 +145,6 @@
 </div>
 
             <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_introduction/getting_started.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
 
@@ -288,6 +251,11 @@
      Step 7 (Optional): Animating the Plot
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-8-optional-challenge-bermuda-triangle">
+     Step 8 (Optional Challenge): Bermuda Triangle
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -350,8 +318,6 @@
 <blockquote>
 <div><p>Click on the <code class="docutils literal notranslate"><span class="pre">Tutorials</span></code> folder then the <code class="docutils literal notranslate"><span class="pre">Workshop</span> <span class="pre">1</span></code> folder.</p>
 </div></blockquote>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <dl class="simple myst">
@@ -364,7 +330,6 @@
 <dt>Python</dt><dd><p>The programming language allowing us to perform scientific computing.</p>
 </dd>
 </dl>
-</div>
 </div>
 </div>
 <div class="section" id="step-3-open-the-barnsley-fern-ipynb-notebook-file">
@@ -455,7 +420,7 @@
 <p><img alt="a" src="../_images/cocalc.png" /></p>
 <p>To create a new file in the current folder, type its name in the  the ‘New File Name’ box, then click the arrow next to the ‘New File’ button and select the file type. To create a new folder, select ‘Folder’ at the bottom of the list of file types.</p>
 <blockquote>
-<div><p>Create a new file <code class="docutils literal notranslate"><span class="pre">Hurricane.ipynb</span></code> in the <code class="docutils literal notranslate"><span class="pre">Workshop_1</span></code> folder. (You can either type the full file name including extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>, or just type <code class="docutils literal notranslate"><span class="pre">Hurricane</span></code> then select ‘Jupyter Notebook’ from the list).</p>
+<div><p>Create a new file <code class="docutils literal notranslate"><span class="pre">Hurricane.ipynb</span></code> in the <code class="docutils literal notranslate"><span class="pre">Workshop_1</span></code> folder. You can either type the full file name including extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>, or just type <code class="docutils literal notranslate"><span class="pre">Hurricane</span></code> then select ‘Jupyter Notebook’ from the list. If it asks you to select a kernel, choose ‘Python 3 (system-wide)’.</p>
 </div></blockquote>
 </div>
 <div class="section" id="step-2-plotting-points">
@@ -535,15 +500,12 @@
 </pre></div>
 </div>
 <p>This is a lot of code, but don’t worry. You don’t understand what each line is doing.</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <dl class="simple myst">
 <dt>Comments</dt><dd><p>The Python interpreter ignores any text that appears after the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol. These lines are <strong>comments</strong> and I have added them to explain what the Python code is doing.</p>
 </dd>
 </dl>
-</div>
 </div>
 <p>To add the location of New York to the map, use the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> function as before.</p>
 <blockquote>
@@ -565,7 +527,7 @@
 <blockquote>
 <div><p>Click on the file to view the contents.</p>
 </div></blockquote>
-<p>Notice that the latitude and longitude are the second and third item in each row.</p>
+<p>Notice that the latitude and longitude are the third and fourth item in each row.</p>
 <blockquote>
 <div><p>Paste the following code into a new code cell.</p>
 </div></blockquote>
@@ -592,15 +554,19 @@
 </pre></div>
 </div>
 <p>This code opens the data file and reads the latitude and longitude from each row. It then translates each to pixel coordinates and appends the values to the two lists <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> (and don’t worry, you won’t understand this code yet).</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple myst">
+<dt>Indexing</dt><dd><p>Python counts items starting at 0 rather than 1. So, <code class="docutils literal notranslate"><span class="pre">row[0]</span></code> is the first item in the list, <code class="docutils literal notranslate"><span class="pre">row[1]</span></code> is the second item, and so on.</p>
+</dd>
+</dl>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <dl class="simple myst">
 <dt>Indentation</dt><dd><p>A peculiar feature of Python is the use of indentation to separate code blocks (other languages use curly brackets <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code> or <code class="docutils literal notranslate"><span class="pre">begin</span> <span class="pre">...</span> <span class="pre">end</span></code>). The above example has two levels of identation, one below the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement and one below the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement, each idented by exacly four space characters.</p>
 </dd>
 </dl>
-</div>
 </div>
 </div>
 <div class="section" id="step-6-plotting-the-hurricane">
@@ -651,6 +617,15 @@
 <div><p>Click on the file <code class="docutils literal notranslate"><span class="pre">hurricane_irma.mp4</span></code> to view the movie.</p>
 </div></blockquote>
 </div>
+<div class="section" id="step-8-optional-challenge-bermuda-triangle">
+<h3>Step 8 (Optional Challenge): Bermuda Triangle<a class="headerlink" href="#step-8-optional-challenge-bermuda-triangle" title="Permalink to this headline">¶</a></h3>
+<p>Adapt the <code class="docutils literal notranslate"><span class="pre">Hurricane.ipynb</span></code> notebook so that it plots the vertices of the <a class="reference external" href="https://en.wikipedia.org/wiki/Bermuda_Triangle">Bermuda Triangle</a>.</p>
+<ul class="simple">
+<li><p>Create a new file <code class="docutils literal notranslate"><span class="pre">Bermuda_Triangle.ipynb</span></code> by duplicating the <code class="docutils literal notranslate"><span class="pre">Hurricane.ipynb</span></code> file.</p></li>
+<li><p>Create a new file <code class="docutils literal notranslate"><span class="pre">bermuda.csv</span></code> containing the co-ordinates of the vertices of the Bermuda Triangle. You should do this by adapting the file <code class="docutils literal notranslate"><span class="pre">irma.csv</span></code>. Estimate the co-ordinates of the three vertices from the Wikipedia article or elsewhere.</p></li>
+<li><p>Edit the code in <code class="docutils literal notranslate"><span class="pre">Bermuda_Triangle.ipynb</span></code> so that it loads data from <code class="docutils literal notranslate"><span class="pre">bermuda.csv</span></code></p></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -692,15 +667,6 @@
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="../2_turtle/turtle_workshop.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Workshop 2: Turtle Graphics</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
