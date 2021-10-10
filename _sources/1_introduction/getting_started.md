@@ -45,7 +45,6 @@ Your project is essentially a virtual computer hosted in the cloud, and it comes
 
 >Click on the `Tutorials` folder then the `Workshop 1` folder.
 
-```{margin}
 ```{note}
 Cocalc
 : The online platform we will be using, providing access to virtual computers hosted in the cloud.
@@ -149,7 +148,7 @@ The Cocalc Project contains a hierarchical file system much like an ordinary PC.
 
 To create a new file in the current folder, type its name in the  the 'New File Name' box, then click the arrow next to the 'New File' button and select the file type. To create a new folder, select 'Folder' at the bottom of the list of file types.
 
-> Create a new file `Hurricane.ipynb` in the `Workshop_1` folder. (You can either type the full file name including extension `.ipynb`, or just type `Hurricane` then select 'Jupyter Notebook' from the list).
+> Create a new file `Hurricane.ipynb` in the `Workshop_1` folder. You can either type the full file name including extension `.ipynb`, or just type `Hurricane` then select 'Jupyter Notebook' from the list. If it asks you to select a kernel, choose 'Python 3 (system-wide)'.
 
 ### Step 2: Plotting Points
 
@@ -231,7 +230,6 @@ print("NY y pos:", y_NY)
 
 This is a lot of code, but don't worry. You don't understand what each line is doing.
 
-```{margin}
 ```{note}
 Comments
 : The Python interpreter ignores any text that appears after the `#` symbol. These lines are **comments** and I have added them to explain what the Python code is doing.
@@ -258,7 +256,7 @@ Each line of the file contains data about the Hurricane at a single time point, 
 
 > Click on the file to view the contents.
 
-Notice that the latitude and longitude are the second and third item in each row.
+Notice that the latitude and longitude are the third and fourth item in each row. 
 
 > Paste the following code into a new code cell.
 
@@ -287,7 +285,11 @@ print("y-coords:", y)
 
 This code opens the data file and reads the latitude and longitude from each row. It then translates each to pixel coordinates and appends the values to the two lists `x` and `y` (and don't worry, you won't understand this code yet).
 
-```{margin}
+```{note}
+Indexing  
+: Python counts items starting at 0 rather than 1. So, `row[0]` is the first item in the list, `row[1]` is the second item, and so on.
+```
+
 ```{note}
 Indentation  
 : A peculiar feature of Python is the use of indentation to separate code blocks (other languages use curly brackets `{` and `}` or `begin ... end`). The above example has two levels of identation, one below the `with` statement and one below the `for` statement, each idented by exacly four space characters.
@@ -341,3 +343,11 @@ anim.save('hurricane_irma.mp4', writer = 'ffmpeg', fps=30)
 After running the code, a new file `hurricane_irma.mp4` will appear in the `Workshop_1` folder (be patient, the code might take a little time to run).
 
 > Click on the file `hurricane_irma.mp4` to view the movie.
+
+### Step 8 (Optional Challenge): Bermuda Triangle 
+
+Adapt the `Hurricane.ipynb` notebook so that it plots the vertices of the [Bermuda Triangle](https://en.wikipedia.org/wiki/Bermuda_Triangle).
+ 
+- Create a new file `Bermuda_Triangle.ipynb` by duplicating the `Hurricane.ipynb` file.
+- Create a new file `bermuda.csv` containing the co-ordinates of the vertices of the Bermuda Triangle. You should do this by adapting the file `irma.csv`. Estimate the co-ordinates of the three vertices from the Wikipedia article or elsewhere.
+- Edit the code in `Bermuda_Triangle.ipynb` so that it loads data from `bermuda.csv`
