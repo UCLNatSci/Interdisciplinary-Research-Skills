@@ -34,18 +34,15 @@
 # In[1]:
 
 
-# set value of time
-
-t = 3
-
 # set values of constants
 
-v_0 = 5
-y_0 = 200
-g = 9.81 # acceleration due to gravity
+v_0 = 5     # initial velocity
+y_0 = 200   # initial y position
+g = 9.81    # acceleration due to gravity
 
-# calculate y
+# calculate y at time t=3
 
+t = 3
 y = y_0 - 0.5 * g * t ** 2
 
 print("t (seconds):", t)
@@ -61,6 +58,14 @@ print("y (metres):", y)
 # By changing the value of `t` and re-running the code we could calculate the position of the projectile at any time we choose.
 # 
 # > Estimate the time the projectile reaches the ground by changing `t` until `y` is zero (to the nearest metre)
+# 
+# In the previous workshop, you learned how to write a function. We can avoid having to type the same line of code repeatedly by defining functions for $x(t)$ and $y(t)$.
+# 
+# > Write two functions for $x(t)$ and $y(t)$. Here is some code to get you started:
+# > ```
+# > def x_t(t):
+# >     # x = ...
+# >     return x
 # 
 # :::{admonition} Variables
 # A variable is a way of storing a value in a computer program. Think of a variable like a container and the name of the variable as the label on the container which shows us what is inside.
@@ -79,6 +84,9 @@ print("y (metres):", y)
 # 
 # 35
 # ```
+# 
+# Python's inbuilt `print()` function can take any number of arguments, separated by commas, which will be joined together and printed all at once. In the code above, we pass two arguments to `print()`: a string (`"t (seconds):"`) which is left as-is, and a variable (`t`), which is converted into its stored value.
+# 
 # :::
 
 # Next we'd like to plot the projectile trajectory on a graph, which will require the calculating `x` and `y` for a whole sequence of values of `t`. To do that, we will use an array.
@@ -92,14 +100,15 @@ print("y (metres):", y)
 
 import numpy as np
 
+# set values of constants
+
+v_0 = 5     # initial velocity
+y_0 = 200   # initial y position
+g = 9.81    # acceleration due to gravity
+
+# calculate y for integer values of t from 0 to 9
+
 t = np.arange(0, 10)
-
-v_0 = 5
-y_0 = 200
-g = 9.81 # acceleration due to gravity
-
-# calculate y
-
 y = y_0 - 0.5 * g * t ** 2
 
 print("t (seconds):", t)
@@ -119,7 +128,7 @@ print("y (metres):", y)
 # :::{admonition} Arrays
 # An array is a sequence of values stored as a single variable. Use the code `np.arange(a, b)` to create an array of numbers from `a` to `b`. Note that `b` is excluded from the array!
 # ```
-# t = np.array(0, 5)
+# t = np.arange(0, 5)
 # print(t)
 # 
 # [0 1 2 3 4]
@@ -139,10 +148,10 @@ plt.plot(t, y)
 
 # First, we imported another package `matplotlib.pyplot` which contains useful plotting functions. We then created a 5 by 5 figure and finally plotted `t` and `y` on the x- and y-axes respectively.
 # 
-# > Plot two more graphs: `x` against `t` and `x` against `y`. Make sure each is on a separate set of axes!
+# > Plot two more graphs: `x` against `t` and `y` against `x`. Make sure each is on a separate set of axes!
 # 
 # :::{admonition} Plotting
-# Functions for plotting are contained in a package called `matplotlib.pyplot`. To create a figure use the function `plt.figure` and to plot the graph use `plt.plot(x, y)` where `x` abd `y` are two arrays of the same length.
+# Functions for plotting are contained in a package called `matplotlib.pyplot`. To create a figure use the function `plt.figure` and to plot the graph use `plt.plot(x, y)` where `x` and `y` are two arrays of the same length.
 # :::
 
 # ## Animation
@@ -157,7 +166,8 @@ from IPython.display import HTML, display
 import random
 
 filename = "animation.gif"
-frames = 10
+# Number of animation frames equals the length of time array t
+frames = len(t)
 interval = 100
 
 def ganimate(frame):
@@ -196,7 +206,7 @@ display(HTML('<img src="' + filename + '?' + __counter__ + '">'))
 # 
 # http://www.astronomynotes.com/tables/tablesb.htm
 # 
-# First, simulate the orbit of the Earth around the sun for. Use `np.arange` to generate an array of 365 years, then calculate `x` and `y` arrays using the equations above. You will need to use the `numpy` functions `np.cos`, `np.sin` and constant `np.pi`. For `d` and `p` use the values in the link above. Plot the orbit on a graph, and animate it.
+# First, simulate the orbit of the Earth around the sun for. Use `np.arange` to generate an array of 365 days, then calculate `x` and `y` arrays using the equations above. You will need to use the `numpy` functions `np.cos`, `np.sin` and constant `np.pi`. For `d` and `p` use the values in the link above. Plot the orbit on a graph, and animate it.
 # 
 # Next, you could add in the orbits of Mercury and Venus. You will need to introduce new variables for the x and y position of these planets, you could call them `x_mercury`, `y_mercury` and so on.
 # 
@@ -205,3 +215,9 @@ display(HTML('<img src="' + filename + '?' + __counter__ + '">'))
 # ## Take it further....
 # 
 # Why not [build an orrery out of lego](http://ecg.mit.edu/george/lego/orrery.html)?
+
+# In[ ]:
+
+
+
+

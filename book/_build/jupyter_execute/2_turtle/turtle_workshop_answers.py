@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Turtle Graphics
-# 
+# # Workshop 2 Answers
 
 # In[1]:
 
@@ -128,20 +127,30 @@ move_forward(2)
 draw_hexagon()
 move_forward(2)
 draw_heptagon()
-glue("turtle_polygons", f, display=False)
 
 
 # In[7]:
+
+
+glue("turtle_polygons", f, display=False)
+
+
+# In[8]:
 
 
 f = start()
 for i in range(5):
     draw_square()
     rotate_left(72)
+
+
+# In[9]:
+
+
 glue("turtle_rotated_squares", f, display=False)
 
 
-# In[8]:
+# In[10]:
 
 
 n = 100
@@ -155,12 +164,10 @@ for j in range (m):
         rotate_left(theta)
     move_forward(1)
     rotate_left(360/m)
-    
+
+
+# In[11]:
+
+
 glue("turtle_circles", f, display=False)
-
-
-# In[ ]:
-
-
-
 

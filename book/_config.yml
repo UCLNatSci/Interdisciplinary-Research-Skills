@@ -42,3 +42,5 @@ parse:
 sphinx:
   config:
     html_extra_path: ['files']
+    
+only_build_toc_files: true
