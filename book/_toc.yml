@@ -8,5 +8,5 @@ chapters:
 - file: 2_turtle/turtle_workshop.ipynb
 # - file: 2_turtle/turtle_workshop_answers.ipynb
 - file: 3_arithmetic_arrays_graphs/arithmetic.ipynb
-# file: 4_simulation/simulation.ipynb
+- file: 4_simulation/simulation.ipynb
 # - file: 5_image_segmentation/segmentation.ipynb

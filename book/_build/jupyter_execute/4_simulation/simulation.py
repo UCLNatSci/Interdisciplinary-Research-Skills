@@ -15,7 +15,16 @@
 # 
 # :::{admonition} Coming soon
 # :class: hint
-# Later you will work in groups of 3 - 4 students to perform a real experiment which tests a model of the motion of an object under gravity.
+# Later you will work in small groups of students to perform a real experiment which tests a model of the motion of an object under gravity.
+# :::
+# 
+# In this workshop you will make predictions about populations of bacteria using simple quantitative models of population growth.
+# 
+# :::{admonition} What you'll learn
+# :class: hint
+# 1. How to model a system using simple difference equations
+# 1. How to load data and plot it
+# 1. How to using model fitting to estimate the parameters of a model
 # :::
 # 
 # ## Exponential Growth
@@ -126,8 +135,8 @@ plt.legend()
 # 
 # The experimenter continues the experiment for a full 24 hours. The results of the experiment are in the files `data_exp_X.txt` and `data_exp_Y.txt`.
 # 
-# <a href="../workshop_4/data_exp_X" download>data_exp_X.txt</a>  
-# <a href="../workshop_4/data_exp_Y" download>data_exp_Y.txt</a>
+# <a href="../workshop_4/data_exp_X.txt" download>data_exp_X.txt</a>  
+# <a href="../workshop_4/data_exp_Y.txt" download>data_exp_Y.txt</a>
 # 
 # We can use the `numpy` function `np.loadtxt` to load the data into a numpy array:
 
@@ -178,7 +187,8 @@ plt.plot(data_X, color='#ff7f0e')
 # ## Logistic Growth
 # 
 # The logistic equation describes the growth of a population where the growth rate is limited by resources.
-# $$x_{i+1} = x_i + r(1-x_i/K)x_i $$
+# 
+# $$x_{i+1} = x_i + r(1-x_i/K)x_i$$
 # 
 # the growth rate $r$ has been replaced by the term $r(1-x_i/K)$. For small populations (when $x_i$ is much less than $K$) the growth rate is close to $r$. As the population size approaches the value $K$, the growth rate reduces to zero.
 # 
@@ -197,9 +207,9 @@ plt.plot(data_X, color='#ff7f0e')
 # 
 # The following three text files contain the results of 3 bacterial population growth experiments. For each one, plot the data and by running a simulation for each, estimate the value of $r$ and $K$.
 # 
-# <a href="../workshop_4/data_exp_A" download>data_exp_A.txt</a>  
-# <a href="../workshop_4/data_exp_B" download>data_exp_B.txt</a>  
-# <a href="../workshop_4/data_exp_B" download>data_exp_C.txt</a>
+# <a href="../workshop_4/data_exp_A.txt" download>data_exp_A.txt</a>  
+# <a href="../workshop_4/data_exp_B.txt" download>data_exp_B.txt</a>  
+# <a href="../workshop_4/data_exp_B.txt" download>data_exp_C.txt</a>
 # 
 # Which data file corresponds to which of the three species in the table below?
 # 
@@ -209,4 +219,30 @@ plt.plot(data_X, color='#ff7f0e')
 # |2|0.7|
 # |3|0.9|
 # 
-# :::{admonition} Challenge :class: hint See if you can use simple functions, loops and arrays to solve this exercise efficiently. If you find yourself repeating the same code over and over, could that be a loop? Try defining a function that takes values for $r$, $K$, $x_0$ (initial population) and `n_hours` as inputs and returns an array of population values. :::
+# :::{admonition} Challenge
+# :class: hint
+# See if you can use simple functions, loops and arrays to solve this exercise efficiently. If you find yourself repeating the same code over and over, could you use a loop? Try defining a function that takes values for $r$, $K$, $x_0$ (initial population) and `n_hours` as inputs and returns an array of population values.
+# 
+# :::
+
+# ## Epidemic Model (Optional)
+# 
+# The spread of an infectious disease amongst a population can be modelled by the following pair of coupled equations:
+# 
+# $$ S_{i+1} = S_i - bS_iI_i $$
+# $$ I_{i+1} = I_i + bS_iI_i - aI_i $$
+# 
+# where $S_i$ represents the number of susceptible (uninfected) people and $I_i$ represents the number of infected people.
+# 
+# There are two parameters: the recovery rate parameter $a$ and the infection rate parameter $b$.
+# 
+# Starting with parameter values $a = 0.1$ and $b = 0.00005$ and the initial populations $S_0 = 20000$ and $I_0 = 100$, model the infection for 100 days.
+# 
+# What happens as you change the values of $a$ and $b$?
+# 
+# :::{admonition} SIR model
+# :class: seealso
+# This model is called the SIR model which is commonly used to [model epidemics such as COVID](https://www.nature.com/articles/d41586-020-01003-6).
+# :::
+# 
+# 
