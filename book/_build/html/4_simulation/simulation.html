@@ -53,6 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Workshop 3: Computation and Plotting" href="../3_arithmetic_arrays_graphs/arithmetic.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -89,7 +90,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../1_introduction/getting_started.html">
    Workshop 1: Jupyter Notebooks
@@ -103,6 +104,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../3_arithmetic_arrays_graphs/arithmetic.html">
    Workshop 3: Computation and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Workshop 4: Modelling and Simulation
   </a>
  </li>
 </ul>
@@ -212,6 +218,18 @@
   <a class="reference internal nav-link" href="#experimental-data">
    Experimental Data
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eight-hour-experiment">
+     Eight hour experiment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hour-experiment">
+     24 hour experiment
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#logistic-growth">
@@ -238,7 +256,10 @@
 <h1>Workshop 4: Modelling and Simulation<a class="headerlink" href="#workshop-4-modelling-and-simulation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>A <a class="reference external" href="https://www.britannica.com/science/scientific-modeling">scientific model </a> is a mathematical or conceptual representation of a real-world process or phenomenon. In the previous workshop, we simulated the motion of an object moving under gravity using a simple quadratic equation. The equation was a model of the motion of the object, but in reality it’s only a prediction of the object’s movement. We can test the model by performing an experiment and comparing the result of the experiment against the prediction of the model. We can think of the model as a ‘scientific hypothesis’ which we confirm or refute based on the results of the experiment, a key component of the <a class="reference external" href="https://www.britannica.com/science/scientific-method">scientific method</a>. In reality we might find that the model is a reasonable appoximation to reality - but by making refinements to the model we can improve its predictive power.</p>
+<p>A <a class="reference external" href="https://www.britannica.com/science/scientific-modeling">scientific model </a> is a mathematical or conceptual representation of a real-world process or phenomenon.</p>
+<p>In the previous workshop, we simulated the motion of an object moving under gravity using a simple quadratic equation. The equation was a model of the motion of the object, but in reality it’s only a prediction of the object’s movement.</p>
+<p>We can test the model by performing an experiment and comparing the result of the experiment against the prediction of the model. We can think of the model as a ‘scientific hypothesis’ which we confirm or refute based on the results of the experiment, a key component of the <a class="reference external" href="https://www.britannica.com/science/scientific-method">scientific method</a>.</p>
+<p>In reality we might find that the model is a reasonable appoximation to reality - but by making refinements to the model we can improve its predictive power.</p>
 <div class="hint admonition">
 <p class="admonition-title">Coming soon</p>
 <p>Later you will work in groups of 3 - 4 students to perform a real experiment which tests a model of the motion of an object under gravity.</p>
@@ -246,15 +267,17 @@
 </div>
 <div class="section" id="exponential-growth">
 <h2>Exponential Growth<a class="headerlink" href="#exponential-growth" title="Permalink to this headline">¶</a></h2>
-<p>Bacteria grown in the lab provide example of <strong>exponential growth</strong>. In exponential growth, the growth rate of the population is in proportion to the size of the population. Bacteria reproduce by binary fission, and the time between divisions is about an hour. Suppose we place a 1000 bacteria in a flask with an unlimited supply of nutrients. After one hour, each bacterium will divide, yielding 2000 bacteria (an increase of 1000). After 2, each of the 2000 bacteria will divide, producing 4000 (an increase of 2000 bacteria). After 3 hours, each of the 4000 bacteria will divide, producing 8000 (an increase of 4000 bacteria). The key concept of exponential growth is that the number of cells added in each generation is in direct proportion to the number cells.</p>
+<p>Bacteria grown in the lab provide an example of <strong>exponential growth</strong>. In exponential growth, the growth rate of the population is in proportion to the size of the population. Bacteria reproduce by binary fission, and the time between divisions is about an hour.</p>
+<p>Suppose we place a 1000 bacteria in a flask with an unlimited supply of nutrients. After one hour, each bacterium will divide, yielding 2000 bacteria (an increase of 1000). After 2 hours, each of the 2000 bacteria will divide, producing 4000 (an increase of 2000 bacteria). After 3 hours, each of the 4000 bacteria will divide, producing 8000 (an increase of 4000 bacteria).</p>
+<p>The key concept of exponential growth is that the number of cells added in each generation is in direct proportion to the number cells.</p>
 </div>
 <div class="section" id="modelling-exponential-growth">
 <h2>Modelling Exponential Growth<a class="headerlink" href="#modelling-exponential-growth" title="Permalink to this headline">¶</a></h2>
-<p>Suppose a population of bacteria of species X doubles in size every hour. Then we can model the population using the following equation:</p>
+<p>Suppose a population of bacteria belonging to species X doubles in size every hour. Then we can model the population using the following equation:</p>
 <div class="math notranslate nohighlight">
 \[x_{i+1} = x_i + rx_i \]</div>
-<p>where <span class="math notranslate nohighlight">\(x_i\)</span> is the population at hour <span class="math notranslate nohighlight">\(i\)</span> and the growth rate <span class="math notranslate nohighlight">\(r=1\)</span>. The equation represents the fact that the population at hour <span class="math notranslate nohighlight">\(i+1\)</span> is <span class="math notranslate nohighlight">\(r+1\)</span> times the population at hour <span class="math notranslate nohighlight">\(i\)</span>.</p>
-<p>Suppose that the initial population is exactly <span class="math notranslate nohighlight">\(1000\)</span> cells and we would like to simulate the population size for 8 hours.</p>
+<p>where <span class="math notranslate nohighlight">\(x_i\)</span> is the population at hour <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(r\)</span> is the growth rate. For this scenario, where the population doubles with each step, we set <span class="math notranslate nohighlight">\(r=1\)</span>. The equation represents the fact that the population at hour <span class="math notranslate nohighlight">\(i+1\)</span> is <span class="math notranslate nohighlight">\(r+1\)</span> times the population at hour <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>Suppose that the initial population is exactly <span class="math notranslate nohighlight">\(1000\)</span> cells and we would like to simulate the population size over the course of 8 hours.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -283,7 +306,7 @@
 <p class="admonition-title">Note</p>
 <p>Python uses <em>exponential notation</em> to express decimal numbers e.g. <span class="math notranslate nohighlight">\(2048 = 2.048 \times 10^3\)</span> is expressed as <code class="docutils literal notranslate"><span class="pre">2.048e+03</span></code>.</p>
 </div>
-<p>Using <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> we can visualise the population curve over the 12 hours:</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> we can visualise the population curve over the 8 hours:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -327,7 +350,9 @@
 </div>
 <div class="section" id="experimental-data">
 <h2>Experimental Data<a class="headerlink" href="#experimental-data" title="Permalink to this headline">¶</a></h2>
-<p>Now suppose that we perform a laboratory experiment in order to measure the growth in the two species of bacteria. The population of each was recorded every hour.</p>
+<div class="section" id="eight-hour-experiment">
+<h3>Eight hour experiment<a class="headerlink" href="#eight-hour-experiment" title="Permalink to this headline">¶</a></h3>
+<p>Now suppose that we perform a laboratory experiment in order to measure the growth in the two species of bacteria. The population of each was recorded every hour for 8 hours.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>See <a class="reference external" href="https://courses.lumenlearning.com/boundless-microbiology/chapter/counting-bacteria/">here</a> for how you might measure a bacterial population in practice.</p>
@@ -347,7 +372,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Species X population (thousands</p></td>
+<tr class="row-even"><td><p>Species X population (thousands)</p></td>
 <td><p>1.0</p></td>
 <td><p>2.18</p></td>
 <td><p>4.45</p></td>
@@ -388,7 +413,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbdfc981fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe0978b7550&gt;
 </pre></div>
 </div>
 <img alt="../_images/simulation_6_1.png" src="../_images/simulation_6_1.png" />
@@ -402,6 +427,9 @@
 <blockquote>
 <div><p>By changing the value of <code class="docutils literal notranslate"><span class="pre">r_Y</span></code> until the two graphs coincide, determine a good value of <span class="math notranslate nohighlight">\(r\)</span> for species Y.</p>
 </div></blockquote>
+</div>
+<div class="section" id="hour-experiment">
+<h3>24 hour experiment<a class="headerlink" href="#hour-experiment" title="Permalink to this headline">¶</a></h3>
 <p>The experimenter continues the experiment for a full 24 hours. The results of the experiment are in the files <code class="docutils literal notranslate"><span class="pre">data_exp_X.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">data_exp_Y.txt</span></code>.</p>
 <p><a href="../workshop_4/data_exp_X" download>data_exp_X.txt</a><br />
 <a href="../workshop_4/data_exp_Y" download>data_exp_Y.txt</a></p>
@@ -448,7 +476,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbdfc965730&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe097cf4d60&gt;
 </pre></div>
 </div>
 <img alt="../_images/simulation_10_1.png" src="../_images/simulation_10_1.png" />
@@ -458,19 +486,20 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_X</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#ff7f0e&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbdfc879b20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe097bf9a00&gt;]
 </pre></div>
 </div>
 <img alt="../_images/simulation_12_1.png" src="../_images/simulation_12_1.png" />
 </div>
 </div>
-<p>Notice that while the population increases exponentially at first, eventually it stops increasing, likely due to exhausting resources such as nutrients or physical space. Our simple exponential model above is insufficient to take this into account. If you like, you can try running the model for 24 hours to see how badly it fits this data.</p>
+<p>Notice that while the population increases exponentially at first, eventually it stops increasing, likely due to exhausting resources such as nutrients or physical space. Our simple exponential model is insufficient to take this into account.</p>
 <p>Instead, we can consider a more sophisticated model, <em>logistic growth</em>.</p>
+</div>
 </div>
 <div class="section" id="logistic-growth">
 <h2>Logistic Growth<a class="headerlink" href="#logistic-growth" title="Permalink to this headline">¶</a></h2>
@@ -482,12 +511,12 @@ $<span class="math notranslate nohighlight">\(x_{i+1} = x_i + r(1-x_i/K)x_i \)</
 <p><span class="math notranslate nohighlight">\(K\)</span> is called the <strong>carrying capacity</strong>.</p>
 </div>
 <blockquote>
-<div><p>Simulate the growth of species X use the new equation. You will need to create a new variable <code class="docutils literal notranslate"><span class="pre">K_X</span></code> and change the line <code class="docutils literal notranslate"><span class="pre">pop[i</span> <span class="pre">+</span> <span class="pre">1]</span> <span class="pre">=</span> <span class="pre">pop[i]</span> <span class="pre">+</span> <span class="pre">pop[i]</span> <span class="pre">*</span> <span class="pre">2</span></code>. Use the value <code class="docutils literal notranslate"><span class="pre">K_X</span> <span class="pre">=</span> <span class="pre">1e7</span></code>.
+<div><p>Simulate the growth of species X use the new equation. You will need to create a new variable <code class="docutils literal notranslate"><span class="pre">K_X</span></code> and change the line <code class="docutils literal notranslate"><span class="pre">pop[i</span> <span class="pre">+</span> <span class="pre">1]</span> <span class="pre">=</span> <span class="pre">pop[i]</span> <span class="pre">+</span> <span class="pre">pop[i]</span> <span class="pre">*</span> <span class="pre">2</span></code>. Use the value <code class="docutils literal notranslate"><span class="pre">K_X</span> <span class="pre">=</span> <span class="pre">1e6</span></code>.
 Plot the experimental and model prediction on the same graph.</p>
 </div></blockquote>
 <p>You should find that the two curves fit well, showing that our new model predicts the population growth well.</p>
 <blockquote>
-<div><p>Repeat the simulation for species Y. Determine values of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(K\)</span> that best fit the experimental data.</p>
+<div><p>Repeat the simulation for species Y (Don’t forget to load the 24h experimental data for Y, from the text file provided above!). Determine values of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(K\)</span> that best fit the experimental data. Hint: the value of <span class="math notranslate nohighlight">\(r\)</span> affects the steepness of growth, while <span class="math notranslate nohighlight">\(K\)</span> is related to the point of saturation.</p>
 </div></blockquote>
 </div>
 <div class="section" id="exercise">
@@ -547,6 +576,15 @@ Plot the experimental and model prediction on the same graph.</p>
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="../3_arithmetic_arrays_graphs/arithmetic.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Workshop 3: Computation and Plotting</p>
+            </div>
+        </a>
+    </div>
 
 </div>
         

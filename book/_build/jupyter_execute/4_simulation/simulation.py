@@ -5,7 +5,13 @@
 # 
 # ## Introduction
 # 
-# A [scientific model ](https://www.britannica.com/science/scientific-modeling) is a mathematical or conceptual representation of a real-world process or phenomenon. In the previous workshop, we simulated the motion of an object moving under gravity using a simple quadratic equation. The equation was a model of the motion of the object, but in reality it's only a prediction of the object's movement. We can test the model by performing an experiment and comparing the result of the experiment against the prediction of the model. We can think of the model as a 'scientific hypothesis' which we confirm or refute based on the results of the experiment, a key component of the [scientific method](https://www.britannica.com/science/scientific-method). In reality we might find that the model is a reasonable appoximation to reality - but by making refinements to the model we can improve its predictive power.
+# A [scientific model ](https://www.britannica.com/science/scientific-modeling) is a mathematical or conceptual representation of a real-world process or phenomenon. 
+# 
+# In the previous workshop, we simulated the motion of an object moving under gravity using a simple quadratic equation. The equation was a model of the motion of the object, but in reality it's only a prediction of the object's movement. 
+# 
+# We can test the model by performing an experiment and comparing the result of the experiment against the prediction of the model. We can think of the model as a 'scientific hypothesis' which we confirm or refute based on the results of the experiment, a key component of the [scientific method](https://www.britannica.com/science/scientific-method). 
+# 
+# In reality we might find that the model is a reasonable appoximation to reality - but by making refinements to the model we can improve its predictive power.
 # 
 # :::{admonition} Coming soon
 # :class: hint
@@ -13,17 +19,21 @@
 # :::
 # 
 # ## Exponential Growth
-# Bacteria grown in the lab provide example of **exponential growth**. In exponential growth, the growth rate of the population is in proportion to the size of the population. Bacteria reproduce by binary fission, and the time between divisions is about an hour. Suppose we place a 1000 bacteria in a flask with an unlimited supply of nutrients. After one hour, each bacterium will divide, yielding 2000 bacteria (an increase of 1000). After 2, each of the 2000 bacteria will divide, producing 4000 (an increase of 2000 bacteria). After 3 hours, each of the 4000 bacteria will divide, producing 8000 (an increase of 4000 bacteria). The key concept of exponential growth is that the number of cells added in each generation is in direct proportion to the number cells.
+# Bacteria grown in the lab provide an example of **exponential growth**. In exponential growth, the growth rate of the population is in proportion to the size of the population. Bacteria reproduce by binary fission, and the time between divisions is about an hour.
+# 
+# Suppose we place a 1000 bacteria in a flask with an unlimited supply of nutrients. After one hour, each bacterium will divide, yielding 2000 bacteria (an increase of 1000). After 2 hours, each of the 2000 bacteria will divide, producing 4000 (an increase of 2000 bacteria). After 3 hours, each of the 4000 bacteria will divide, producing 8000 (an increase of 4000 bacteria). 
+# 
+# The key concept of exponential growth is that the number of cells added in each generation is in direct proportion to the number cells.
 # 
 # ## Modelling Exponential Growth
 # 
-# Suppose a population of bacteria of species X doubles in size every hour. Then we can model the population using the following equation:
+# Suppose a population of bacteria belonging to species X doubles in size every hour. Then we can model the population using the following equation:
 # 
 # $$x_{i+1} = x_i + rx_i $$
 # 
-# where $x_i$ is the population at hour $i$ and the growth rate $r=1$. The equation represents the fact that the population at hour $i+1$ is $r+1$ times the population at hour $i$.
+# where $x_i$ is the population at hour $i$ and $r$ is the growth rate. For this scenario, where the population doubles with each step, we set $r=1$. The equation represents the fact that the population at hour $i+1$ is $r+1$ times the population at hour $i$.
 # 
-# Suppose that the initial population is exactly $1000$ cells and we would like to simulate the population size for 8 hours.
+# Suppose that the initial population is exactly $1000$ cells and we would like to simulate the population size over the course of 8 hours.
 # 
 
 # In[1]:
@@ -48,7 +58,7 @@ print("Population of species X:", pop_X)
 # Python uses *exponential notation* to express decimal numbers e.g. $2048 = 2.048 \times 10^3$ is expressed as `2.048e+03`.
 # :::
 # 
-# Using `plt.plot` we can visualise the population curve over the 12 hours:
+# Using `plt.plot` we can visualise the population curve over the 8 hours:
 
 # In[2]:
 
@@ -74,15 +84,17 @@ plt.title("Species X")
 
 # ## Experimental Data
 # 
-# Now suppose that we perform a laboratory experiment in order to measure the growth in the two species of bacteria. The population of each was recorded every hour.
+# ### Eight hour experiment
+# 
+# Now suppose that we perform a laboratory experiment in order to measure the growth in the two species of bacteria. The population of each was recorded every hour for 8 hours.
 # 
 # :::{seealso}
 # See [here](https://courses.lumenlearning.com/boundless-microbiology/chapter/counting-bacteria/) for how you might measure a bacterial population in practice.
 # :::
 # 
 # |Time (hours)|0|1|2|3|4|5|6|7|8|
-# |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-# |Species X population (thousands|1.0|2.18|4.45|8.91|16.1|31.49|60.89|117.58|214.4|
+# |---|---|---|---|---|---|---|---|---|---|
+# |Species X population (thousands)|1.0|2.18|4.45|8.91|16.1|31.49|60.89|117.58|214.4|
 # |Species Y population (thousands)|1.0|1.47|2.02|2.81|4.16|5.88|7.98|10.99|15.59|
 # 
 # Let's plot this experimental data on the same graph as the model simulation.
@@ -109,6 +121,8 @@ plt.legend()
 # You should find that the model and experiment aren't such a good fit for species Y.
 # 
 # > By changing the value of `r_Y` until the two graphs coincide, determine a good value of $r$ for species Y.
+# 
+# ### 24 hour experiment
 # 
 # The experimenter continues the experiment for a full 24 hours. The results of the experiment are in the files `data_exp_X.txt` and `data_exp_Y.txt`.
 # 
@@ -154,10 +168,10 @@ plt.legend()
 
 
 plt.figure(figsize=(6,3))
-plt.plot(data_X)
+plt.plot(data_X, color='#ff7f0e')
 
 
-# Notice that while the population increases exponentially at first, eventually it stops increasing, likely due to exhausting resources such as nutrients or physical space. Our simple exponential model above is insufficient to take this into account. If you like, you can try running the model for 24 hours to see how badly it fits this data.
+# Notice that while the population increases exponentially at first, eventually it stops increasing, likely due to exhausting resources such as nutrients or physical space. Our simple exponential model is insufficient to take this into account.
 # 
 # Instead, we can consider a more sophisticated model, *logistic growth*.
 # 
@@ -172,12 +186,12 @@ plt.plot(data_X)
 # $K$ is called the **carrying capacity**.
 # :::
 # 
-# > Simulate the growth of species X use the new equation. You will need to create a new variable `K_X` and change the line `pop[i + 1] = pop[i] + pop[i] * 2`. Use the value `K_X = 1e7`.
+# > Simulate the growth of species X use the new equation. You will need to create a new variable `K_X` and change the line `pop[i + 1] = pop[i] + pop[i] * 2`. Use the value `K_X = 1e6`.
 # > Plot the experimental and model prediction on the same graph.
 # 
 # You should find that the two curves fit well, showing that our new model predicts the population growth well.
 # 
-# > Repeat the simulation for species Y. Determine values of $r$ and $K$ that best fit the experimental data.
+# > Repeat the simulation for species Y (Don't forget to load the 24h experimental data for Y, from the text file provided above!). Determine values of $r$ and $K$ that best fit the experimental data. Hint: the value of $r$ affects the steepness of growth, while $K$ is related to the point of saturation.
 
 # ## Exercise
 # 
@@ -194,3 +208,5 @@ plt.plot(data_X)
 # |1|0.4|
 # |2|0.7|
 # |3|0.9|
+# 
+# :::{admonition} Challenge :class: hint See if you can use simple functions, loops and arrays to solve this exercise efficiently. If you find yourself repeating the same code over and over, could that be a loop? Try defining a function that takes values for $r$, $K$, $x_0$ (initial population) and `n_hours` as inputs and returns an array of population values. :::
