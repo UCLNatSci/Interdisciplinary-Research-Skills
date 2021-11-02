@@ -209,7 +209,7 @@ plt.plot(data_X, color='#ff7f0e')
 # 
 # <a href="../workshop_4/data_exp_A.txt" download>data_exp_A.txt</a>  
 # <a href="../workshop_4/data_exp_B.txt" download>data_exp_B.txt</a>  
-# <a href="../workshop_4/data_exp_B.txt" download>data_exp_C.txt</a>
+# <a href="../workshop_4/data_exp_C.txt" download>data_exp_C.txt</a>
 # 
 # Which data file corresponds to which of the three species in the table below?
 # 
