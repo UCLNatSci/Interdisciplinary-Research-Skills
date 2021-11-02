@@ -196,7 +196,7 @@ plt.plot(data_X, color='#ff7f0e')
 # $K$ is called the **carrying capacity**.
 # :::
 # 
-# > Simulate the growth of species X use the new equation. You will need to create a new variable `K_X` and change the line `pop[i + 1] = pop[i] + pop[i] * 2`. Use the value `K_X = 1e6`.
+# > Simulate the growth of species X use the new equation. You will need to create a new variable `K_X` and change the line `pop_X[i + 1] = pop_X[i] + pop_X[i] * r_X`. Use the value `K_X = 1e6`.
 # > Plot the experimental and model prediction on the same graph.
 # 
 # You should find that the two curves fit well, showing that our new model predicts the population growth well.
