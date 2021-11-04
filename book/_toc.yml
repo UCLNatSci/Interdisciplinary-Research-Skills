@@ -10,3 +10,4 @@ chapters:
 - file: 3_arithmetic_arrays_graphs/arithmetic.ipynb
 - file: 4_simulation/simulation.ipynb
 # - file: 5_image_segmentation/segmentation.ipynb
+# - file: 6_project/project.md
