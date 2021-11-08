@@ -215,9 +215,3 @@ display(HTML('<img src="' + filename + '?' + __counter__ + '">'))
 # ## Take it further....
 # 
 # Why not [build an orrery out of lego](http://ecg.mit.edu/george/lego/orrery.html)?
-
-# In[ ]:
-
-
-
-

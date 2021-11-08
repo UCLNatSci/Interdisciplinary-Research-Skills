@@ -9,6 +9,8 @@ logo: emipit65.jpg
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  exclude_patterns:
+    - '3_arithmetic_arrays_graphs/orrery.ipynb'
 
 # Define the name of the latex output file for PDF builds
 latex:

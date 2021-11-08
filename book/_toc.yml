@@ -6,8 +6,13 @@ root: intro
 chapters:
 - file: 1_introduction/getting_started.md
 - file: 2_turtle/turtle_workshop.ipynb
-# - file: 2_turtle/turtle_workshop_answers.ipynb
+  sections:
+  - file: 2_turtle/turtle_workshop_answers.ipynb
 - file: 3_arithmetic_arrays_graphs/arithmetic.ipynb
+  sections:
+  - file: 3_arithmetic_arrays_graphs/answers/orrery.ipynb  
 - file: 4_simulation/simulation.ipynb
+  sections:
+  - file: 4_simulation/simulation_sample_solution.ipynb
 # - file: 5_image_segmentation/segmentation.ipynb
 # - file: 6_project/project.md
