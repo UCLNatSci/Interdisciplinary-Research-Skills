@@ -253,7 +253,9 @@ plt.scatter(x_pos, y_pos, color="black", marker="x", s=200)
 # 
 # ### Load Video Data
 # 
-# The following code loads a video file into an array called `data` and prints out dimensions of each frame and the number of frames. You don't need to understand this code:
+# The following code loads a video file into an array called `data` and prints out the dimensions of each frame and the number of frames. You don't need to understand how it works.
+# 
+# <a href="../workshop_5/atomic.avi" download>atomic.avi (download link)</a>
 
 # In[16]:
 
