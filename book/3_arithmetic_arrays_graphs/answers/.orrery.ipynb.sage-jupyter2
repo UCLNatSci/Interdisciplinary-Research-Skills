@@ -7,4 +7,4 @@
 {"cell_type":"markdown","id":"6837fd","input":"If we want to plot many planets, using arrays and loops can save us many lines of code","pos":3,"type":"cell"}
 {"cell_type":"markdown","id":"b68230","input":"# Sample solutions for Virtual Orrery\n\nBelow are 3 possible solution to the orrery challenge exercise, with different levels of complexity.","pos":0,"type":"cell"}
 {"id":0,"time":1636824556967,"type":"user"}
-{"last_load":1636970046607,"type":"file"}
+{"last_load":1636993993968,"type":"file"}

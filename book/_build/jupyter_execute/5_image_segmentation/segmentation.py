@@ -235,7 +235,9 @@ plt.scatter(x_pos, y_pos, color="black", marker="x", s=200)
 # > Test your function using the 8x8 image `A` from earlier:
 # 
 # ```
-# A = mpimg.imread("bw.png") 
+# A = mpimg.imread("bw.png")
+# A = np.mean(A, axis=2)
+# 
 # x, y = largest_blob_coords(A, 0.7)
 # print(x,y)
 # 
