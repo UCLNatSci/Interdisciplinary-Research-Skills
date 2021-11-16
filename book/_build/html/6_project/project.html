@@ -53,7 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Workshop 4: Modelling and Simulation" href="../4_simulation/simulation.html" />
+    <link rel="prev" title="Workshop 5: Image Segmentation" href="../5_image_segmentation/segmentation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -96,19 +96,60 @@
    Workshop 1: Jupyter Notebooks
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../2_turtle/turtle_workshop.html">
    Workshop 2: Turtle Graphics
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2_turtle/turtle_workshop_answers.html">
+     Workshop 2 Answers
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../3_arithmetic_arrays_graphs/arithmetic.html">
    Workshop 3: Computation and Plotting
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_arithmetic_arrays_graphs/answers/orrery.html">
+     Sample solutions for Virtual Orrery
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../4_simulation/simulation.html">
    Workshop 4: Modelling and Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_simulation/simulation_sample_solution.html">
+     Workshop 4 Answers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_image_segmentation/segmentation.html">
+   Workshop 5: Image Segmentation
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -193,18 +234,40 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-1-conduct-an-experiment">
-   Step 1: Conduct an Experiment
+  <a class="reference internal nav-link" href="#instructions">
+   Instructions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1-conduct-an-experiment">
+     Step 1: Conduct an Experiment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2-extract-the-data">
+     Step 2: Extract the Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3-build-and-fit-the-model">
+     Step 3: Build and Fit the Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-extension-activities">
+     Optional Extension Activities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission">
+   Submission
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-2-extract-the-data">
-   Step 2: Extract the Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-3-build-and-fit-the-model">
-   Step 3: Build and Fit the Model
+  <a class="reference internal nav-link" href="#mark-scheme">
+   Mark Scheme
   </a>
  </li>
 </ul>
@@ -223,23 +286,26 @@
 <p>For the rest of this course you will put together the concepts and skills you have learnt so far in order to conduct a simple (but genuine) scientific experiment.</p>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>It is well known that the value of <a class="reference external" href="https://en.wikipedia.org/wiki/Gravity_of_Earth">acceleration due to gravity at the Earth’s surface (g)</a> is approximately <span class="math notranslate nohighlight">\(8.91~\mathrm{m}/\mathrm{s}^2\)</span>. But how accurately can you measure the value of this physical constant using just a handheld video camera and your nascent programming skills?</p>
+<p>It is well known that the value of <a class="reference external" href="https://en.wikipedia.org/wiki/Gravity_of_Earth">acceleration due to gravity at the Earth’s surface (g)</a> is approximately <span class="math notranslate nohighlight">\(9.81~\mathrm{m}/\mathrm{s}^2\)</span>. But how accurately can you measure the value of this physical constant using just a handheld video camera and your nascent programming skills?</p>
 <div class="tip admonition">
 <p class="admonition-title">Project Goal</p>
-<p>Perform an experiment to determine an estimate of the value of g. Use a handheld camera to capture the experimental results and Python to perform the analysis.</p>
+<p>Perform an experiment to determine an estimate of the value of g, using a handheld camera to capture the experimental results and Python to perform the analysis.</p>
 </div>
 </div>
+<div class="section" id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h2>
+<p>These instructions are one suggested way to meet the project goal. There may be other equally valid ways to achieve the goal, so feel free to adapt them as you wish.</p>
 <div class="section" id="step-1-conduct-an-experiment">
-<h2>Step 1: Conduct an Experiment<a class="headerlink" href="#step-1-conduct-an-experiment" title="Permalink to this headline">¶</a></h2>
+<h3>Step 1: Conduct an Experiment<a class="headerlink" href="#step-1-conduct-an-experiment" title="Permalink to this headline">¶</a></h3>
 <p>Using a handheld video camera (e.g. the one in your smartphone), record the motion of an object falling vertically from rest. You can use any object you like, but I advise against anything breakable or expensive. You might need to experiment a little to determine a setup which reliably gives a clean and accurate recording, but don’t spend a lot of time tinkering; you can refine the experiment later! The output of this step should be a movie file (e.g. <code class="docutils literal notranslate"><span class="pre">.mov</span></code> or <code class="docutils literal notranslate"><span class="pre">.avi</span></code>).</p>
 </div>
 <div class="section" id="step-2-extract-the-data">
-<h2>Step 2: Extract the Data<a class="headerlink" href="#step-2-extract-the-data" title="Permalink to this headline">¶</a></h2>
+<h3>Step 2: Extract the Data<a class="headerlink" href="#step-2-extract-the-data" title="Permalink to this headline">¶</a></h3>
 <p>Extract the data from the recording in the form of a sequence of x and y co-ordinates for each frame.
-First you will need to upload the movie file. Then you can use the image manipulation library studied in the last workshop to determine the co-ordinates, but you will need to do this frame-by-frame. The code to extract the frame-by-frame image data from the video file is somewhat painful so I have provided it at the end of this document. The end result should be two arrays <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> containing the position of the object in each frame.</p>
+First you will need to upload the movie file. Then you can use the image manipulation library studied in the last workshop to determine the frame-by-frame co-ordinates. The end result should be two arrays containing the x- and y-coordinates of the object in each frame.</p>
 </div>
 <div class="section" id="step-3-build-and-fit-the-model">
-<h2>Step 3: Build and Fit the Model<a class="headerlink" href="#step-3-build-and-fit-the-model" title="Permalink to this headline">¶</a></h2>
+<h3>Step 3: Build and Fit the Model<a class="headerlink" href="#step-3-build-and-fit-the-model" title="Permalink to this headline">¶</a></h3>
 <p>The motion of a uniformly accelerating object is described by the following differential equation:</p>
 <div class="math notranslate nohighlight">
 \[\frac{d^2y}{dt^2} = a\]</div>
@@ -247,6 +313,41 @@ First you will need to upload the movie file. Then you can use the image manipul
 <div class="math notranslate nohighlight">
 \[y(t) = y_0 - \frac{1}{2}at^2 \]</div>
 <p>By plotting this curve against the experimental results determined in step 2, find the value of <span class="math notranslate nohighlight">\(a\)</span> which best fits.</p>
+</div>
+<div class="section" id="optional-extension-activities">
+<h3>Optional Extension Activities<a class="headerlink" href="#optional-extension-activities" title="Permalink to this headline">¶</a></h3>
+<p>To achieve the highest mark for this assessment, you should complete an extention activity which goes beyond the project goal. For example, you could use the techniques to measure another physical parameter (e.g. coefficient of friction) or quantify the accuracy of your results. You can discuss your extension activity ideas with one of the tutors.</p>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You should submit your solution to the problem as a Jupyter Notebook, including code cells and Markdown. Your submission should include enough explanatory text that the reader can easily understand how you completed the experiment. See Moodle for the submission deadline and instructions.</p>
+</div>
+<div class="section" id="mark-scheme">
+<h2>Mark Scheme<a class="headerlink" href="#mark-scheme" title="Permalink to this headline">¶</a></h2>
+<p>Each project group will be awarded a mark as follows.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Grade</p></th>
+<th class="head"><p>Class</p></th>
+<th class="head"><p>Criterion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>100%</p></td>
+<td><p>Distinction</p></td>
+<td><p>A solution to the problem which also goes beyond the project goal by completing an extension activity</p></td>
+</tr>
+<tr class="row-odd"><td><p>70%</p></td>
+<td><p>Merit</p></td>
+<td><p>A solution to the problem which meets the project goal,  accurately identifying a value for <span class="math notranslate nohighlight">\(g\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>39%</p></td>
+<td><p>Fail</p></td>
+<td><p>Failed to solve the problem or notebook does not run correctly</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -280,11 +381,11 @@ First you will need to upload the movie file. Then you can use the image manipul
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../4_simulation/simulation.html" title="previous page">
+        <a class="left-prev" href="../5_image_segmentation/segmentation.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Workshop 4: Modelling and Simulation</p>
+                <p class="prevnext-title">Workshop 5: Image Segmentation</p>
             </div>
         </a>
     </div>
