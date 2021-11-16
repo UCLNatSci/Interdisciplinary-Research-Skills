@@ -286,10 +286,10 @@
 <p>For the rest of this course you will put together the concepts and skills you have learnt so far in order to conduct a simple (but genuine) scientific experiment.</p>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>It is well known that the value of <a class="reference external" href="https://en.wikipedia.org/wiki/Gravity_of_Earth">acceleration due to gravity at the Earth’s surface (g)</a> is approximately <span class="math notranslate nohighlight">\(9.81~\mathrm{m}/\mathrm{s}^2\)</span>. But how accurately can you measure the value of this physical constant using just a handheld video camera and your nascent programming skills?</p>
+<p>It is well known that the value of <a class="reference external" href="https://en.wikipedia.org/wiki/Gravity_of_Earth">acceleration due to gravity at the Earth’s surface (<span class="math notranslate nohighlight">\(g\)</span>)</a> is approximately <span class="math notranslate nohighlight">\(9.81~\mathrm{m}/\mathrm{s}^2\)</span>. But how accurately can you measure the value of this physical constant using just a handheld video camera and your nascent programming skills?</p>
 <div class="tip admonition">
 <p class="admonition-title">Project Goal</p>
-<p>Perform an experiment to determine an estimate of the value of g, using a handheld camera to capture the experimental results and Python to perform the analysis.</p>
+<p>Perform an experiment to determine an estimate of the value of <span class="math notranslate nohighlight">\(g\)</span>, using a handheld camera to capture the experimental results and Python to perform the analysis.</p>
 </div>
 </div>
 <div class="section" id="instructions">
@@ -297,26 +297,25 @@
 <p>These instructions are one suggested way to meet the project goal. There may be other equally valid ways to achieve the goal, so feel free to adapt them as you wish.</p>
 <div class="section" id="step-1-conduct-an-experiment">
 <h3>Step 1: Conduct an Experiment<a class="headerlink" href="#step-1-conduct-an-experiment" title="Permalink to this headline">¶</a></h3>
-<p>Using a handheld video camera (e.g. the one in your smartphone), record the motion of an object falling vertically from rest. You can use any object you like, but I advise against anything breakable or expensive. You might need to experiment a little to determine a setup which reliably gives a clean and accurate recording, but don’t spend a lot of time tinkering; you can refine the experiment later! The output of this step should be a movie file (e.g. <code class="docutils literal notranslate"><span class="pre">.mov</span></code> or <code class="docutils literal notranslate"><span class="pre">.avi</span></code>).</p>
+<p>Using a handheld video camera (e.g. the one in your smartphone), record the motion of an object falling vertically from rest. You can use any object you like, but I advise against anything breakable or expensive. You might need to experiment a little to determine a setup which reliably gives a clean and accurate recording (for example the camera will need to be completely static) but don’t spend a lot of time tinkering; you can refine the experiment later! The output of this step should be a movie file (e.g. <code class="docutils literal notranslate"><span class="pre">.mov</span></code> or <code class="docutils literal notranslate"><span class="pre">.avi</span></code>).</p>
 </div>
 <div class="section" id="step-2-extract-the-data">
 <h3>Step 2: Extract the Data<a class="headerlink" href="#step-2-extract-the-data" title="Permalink to this headline">¶</a></h3>
-<p>Extract the data from the recording in the form of a sequence of x and y co-ordinates for each frame.
-First you will need to upload the movie file. Then you can use the image manipulation library studied in the last workshop to determine the frame-by-frame co-ordinates. The end result should be two arrays containing the x- and y-coordinates of the object in each frame.</p>
+<p>Extract the location of the object from the recording in the form of a sequence of x and y co-ordinates for each frame. First you will need to upload the movie file. Then you can use the image segmentation techniques studied in the last workshop to determine the frame-by-frame coordinates. The end result should be two arrays containing the x- and y-coordinates of the object in each frame.</p>
 </div>
 <div class="section" id="step-3-build-and-fit-the-model">
 <h3>Step 3: Build and Fit the Model<a class="headerlink" href="#step-3-build-and-fit-the-model" title="Permalink to this headline">¶</a></h3>
-<p>The motion of a uniformly accelerating object is described by the following differential equation:</p>
+<p>The motion of an object accelerating uniformly from rest is described by the following differential equation:</p>
 <div class="math notranslate nohighlight">
-\[\frac{d^2y}{dt^2} = a\]</div>
-<p>where <span class="math notranslate nohighlight">\(a\)</span> is the acceleration of the object and <span class="math notranslate nohighlight">\(y(t)\)</span> is the object’s vertical position at time <span class="math notranslate nohighlight">\(t\)</span>. Integrating this equation results in an equation for the vertical position of the object:</p>
+\[\frac{\mathrm{d}^2y}{\mathrm{d}t^2} = g\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is the acceleration of the object and <span class="math notranslate nohighlight">\(y(t)\)</span> is the object’s vertical position at time <span class="math notranslate nohighlight">\(t\)</span>. Integrating this equation results in an equation for the vertical position of the object:</p>
 <div class="math notranslate nohighlight">
-\[y(t) = y_0 - \frac{1}{2}at^2 \]</div>
-<p>By plotting this curve against the experimental results determined in step 2, find the value of <span class="math notranslate nohighlight">\(a\)</span> which best fits.</p>
+\[y(t) = y_0 - \frac{1}{2}gt^2 \]</div>
+<p>By plotting this curve against the experimental results determined in step 2, find the value of <span class="math notranslate nohighlight">\(g\)</span> which best fits.</p>
 </div>
 <div class="section" id="optional-extension-activities">
 <h3>Optional Extension Activities<a class="headerlink" href="#optional-extension-activities" title="Permalink to this headline">¶</a></h3>
-<p>To achieve the highest mark for this assessment, you should complete an extention activity which goes beyond the project goal. For example, you could use the techniques to measure another physical parameter (e.g. coefficient of friction) or quantify the accuracy of your results. You can discuss your extension activity ideas with one of the tutors.</p>
+<p>To achieve the highest mark for this assessment, you should complete an extention activity which goes beyond the project goal. For example, you could use the techniques to measure another physical parameter (e.g. coefficient of friction) or perform error analysis to quantify the accuracy of your results. You can discuss your extension activity ideas with one of the tutors.</p>
 </div>
 </div>
 <div class="section" id="submission">
@@ -340,7 +339,7 @@ First you will need to upload the movie file. Then you can use the image manipul
 </tr>
 <tr class="row-odd"><td><p>70%</p></td>
 <td><p>Merit</p></td>
-<td><p>A solution to the problem which meets the project goal,  accurately identifying a value for <span class="math notranslate nohighlight">\(g\)</span></p></td>
+<td><p>A solution to the problem which meets the project goal by correctly determining a value for <span class="math notranslate nohighlight">\(g\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p>39%</p></td>
 <td><p>Fail</p></td>
