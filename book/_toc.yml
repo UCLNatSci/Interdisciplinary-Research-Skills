@@ -15,4 +15,6 @@ chapters:
   sections:
   - file: 4_simulation/simulation_sample_solution.ipynb
 - file: 5_image_segmentation/segmentation.ipynb
+  sections:
+  - file:  5_image_segmentation/sample_solutions.ipynb
 - file: 6_project/project.md

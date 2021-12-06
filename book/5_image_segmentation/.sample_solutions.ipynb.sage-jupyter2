@@ -13,5 +13,5 @@
 {"cell_type":"markdown","id":"3ed9f2","input":"Crop the first frame frame","pos":10,"type":"cell"}
 {"cell_type":"markdown","id":"cfe0d8","input":"Slice indexing for cropping.\n\n```{image} slice_exercise.png\n:width: 200px\n```","pos":2,"type":"cell"}
 {"cell_type":"markdown","id":"f40c30","input":"# Thresholding\n\nWrite a function that takes two inputs: a grayscale image, and a threshold value. Your function should then return the x and y co-ordinates of the largest blob in that image.","pos":4,"type":"cell"}
-{"id":0,"time":1637067509357,"type":"user"}
+{"id":0,"time":1638820217944,"type":"user"}
 {"last_load":1637065332324,"type":"file"}
