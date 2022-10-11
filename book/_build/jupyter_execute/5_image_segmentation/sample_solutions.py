@@ -25,7 +25,7 @@ A = np.mean(A, axis=2)
 # :width: 200px
 # ```
 
-# In[2]:
+# In[20]:
 
 
 # Adjust these index values to get the red box
@@ -45,7 +45,7 @@ plt.clim(np.amin(A), np.amax(A))
 # 
 # Write a function that takes two inputs: a grayscale image, and a threshold value. Your function should then return the x and y co-ordinates of the largest blob in that image.
 
-# In[3]:
+# In[21]:
 
 
 def largest_blob_coords(image, thresh):
@@ -66,7 +66,7 @@ def largest_blob_coords(image, thresh):
 
 # Test function using the 8x8 image A from earlier:
 
-# In[4]:
+# In[25]:
 
 
 A = mpimg.imread("bw.png")
@@ -80,7 +80,7 @@ print(x,y)
 # 
 # Load video data
 
-# In[5]:
+# In[27]:
 
 
 import cv2
@@ -112,7 +112,7 @@ print("Number of frames:", data.shape[0])
 
 # Crop the first frame frame
 
-# In[6]:
+# In[30]:
 
 
 f = data[0,:,:] # extract the first frame
@@ -138,7 +138,7 @@ plt.figure(figsize=(7,7))
 plt.imshow(f_cropped)
 
 
-# In[7]:
+# In[34]:
 
 
 # Threshold value
@@ -157,7 +157,7 @@ x, y = largest_blob_coords(f, t)
 plt.scatter(x, y, color="black", marker="x")
 
 
-# In[8]:
+# In[54]:
 
 
 # Define some constants: number of frames to analyse, and threshold value

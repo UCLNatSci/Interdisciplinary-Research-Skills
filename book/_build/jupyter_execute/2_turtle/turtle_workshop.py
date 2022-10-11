@@ -108,7 +108,7 @@ for i in range(4):
 # > Rewrite your hexagon code using a `for` loop.
 # 
 # :::{admonition} `for` loop
-# A `for` loop instructs the computer to repeat a set of instructions a specified number of times. For example, the following code would print the numbers 1 to 10.
+# A `for` loop instructs the computer to repeat a set of instructions a specified number of times. For example, the following code would print the numbers 0 to 9.
 # 
 # ```
 # for i in range(10):
